@@ -1,0 +1,47 @@
+{
+  "name": "my-blog",
+  "version": "1.0.0",
+  "author": "zhangxiao@wshifu.com",
+  "license": "ISC",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development next",
+    "test": "cross-env NODE_ENV=testing next",
+    "prod": "cross-env NODE_ENV=production next",
+    "build:dev": "cross-env NODE_ENV=development next build",
+    "build:test": "cross-env NODE_ENV=testing next build",
+    "build:prod": "cross-env NODE_ENV=production next build",
+    "start": "cross-env PORT=8080 NODE_ENV=production node server.js",
+    "pm2-start": "pm2 start server.js --watch --name wsf-www-ssr",
+    "pm2-delete": "pm2 delete wsf-www-ssr",
+    "pm2-stop": "pm2 stop wsf-www-ssr"
+  },
+  "dependencies": {
+    "@zeit/next-less": "0.3.0",
+    "antd": "^3.5.4",
+    "axios": "^0.18.0",
+    "less": "3.0.4",
+    "lodash": "^4.17.10",
+    "lru-cache": "^4.1.3",
+    "mobx": "^5.0.3",
+    "mobx-react": "^5.2.5",
+    "next": "^6.1.2",
+    "qs": "^6.5.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "styled-jsx": "^3.0.2",
+    "wangeditor": "^3.1.1"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.7.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "cross-env": "^5.1.6",
+    "dotenv": "^6.0.0",
+    "dotenv-webpack": "^1.5.7",
+    "express": "^4.14.0",
+    "file-loader": "^1.1.11",
+    "styled-jsx-css-loader": "^0.3.0",
+    "emit-file-loader": "0.0.2",
+    "url-loader": "^0.6.2"
+  }
+}
