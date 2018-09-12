@@ -2,10 +2,11 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-09-12 18:25:44
+ * @Last Modified time: 2018-09-12 21:18:28
  * @file: node服务器启动文件（路由配置）
  */
 
+const  mongoose = require("mongoose");
 const express = require('express');
 const next = require('next');
 const LRUCache = require('lru-cache');  
@@ -36,9 +37,26 @@ app.prepare().then(() => {
   //服务端路由
   routes(server, handle)
 
-  //启动node服务器监听端口
+  connect ()
+  .on('error', console.log)
+  .on('disconnected', connect)
+  .once('open', listen.bind(this,server));
+  //服务端口 
+})
+
+function connect() {
+  var url = "mongodb://localhost:27017/mongodb";
+  var db = mongoose.connect(url).then(function(rs){
+    console.log(rs, '连接成功')
+  },function(err){
+    console.log(err, '连接失败')
+  }).catch(function(err){ console.log(err) });
+  return mongoose.connection
+}
+
+function listen(server) {
   server.listen(port, (err) => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
-  })
-})
+  });
+}
