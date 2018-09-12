@@ -153,6 +153,19 @@ h1.t_nav { border-bottom: #bfbfbf 1px solid; font-size: 14px; font-weight: norma
 .timer { background: url(/static/images/page_time.jpg) no-repeat; background-size: cover; background-position: top center; }
 /*share*/
 .editor { min-height: 600px }
+.game { height: 600px; position: relative; }
+.game #canvas1{
+    position: absolute;
+    left: 50%;
+    margin-left: -400px; 
+    z-index: 10006;
+}
+.game #canvas2{
+    position: absolute;
+    left: 50%;
+    margin-left: -400px; 
+    z-index: 10005;
+}
 .share { overflow: hidden; padding-top: 10px }
 /* .shareli { margin: 0 15px; padding-bottom: 10px }
 .share ul li { width: 25%; float: left; overflow: hidden; position: relative; margin-bottom: 30px; -webkit-transition: all .3s ease; -moz-transition: all .3s ease; -ms-transition: all .3s ease; -o-transition: all .3s ease; transition: all .3s ease; }
