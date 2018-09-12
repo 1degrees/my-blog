@@ -2,9 +2,8 @@ import canvas from './canvasInfo'
 import gInfo from './gameInfo'
 
 export default class FruitObj {
-    static num = 30;
-
     constructor(){
+        this.num = 30;
         this.alive = [];
         this.x = [];
         this.y = [];
@@ -57,6 +56,7 @@ export default class FruitObj {
     }
 
     born(i) {
+        let { ane } = gInfo;
         this.aneNo[i] = Math.floor(Math.random()*ane.num);
         this.l[i] = 0;
         this.alive[i] = true;

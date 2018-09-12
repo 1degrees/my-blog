@@ -2,14 +2,14 @@ import canvas from './canvasInfo'
 import gInfo from './gameInfo'
 
 export default class HaloObj {
-    static num = 5;
-
     constructor(){
         this.x=[];
         this.y=[];
         this.r=[];
         this.alive=[];
     }
+
+    num = 5
 
     init(){
         for(var i=0;i<this.num;i++){
@@ -34,7 +34,7 @@ export default class HaloObj {
                     this.alive[i] = false; 
                     break; 
                 };
-                var alpha = 1-this.r[i]/100;
+                let alpha = 1-this.r[i]/100;
                 ctx1.beginPath();
                 ctx1.arc(this.x[i], this.y[i],this.r[i], 0, Math.PI*2);
                 ctx1.closePath();
@@ -46,7 +46,7 @@ export default class HaloObj {
     }
 
     born(x,y){
-        for(var i=0; i<this.num; i++){
+        for(var i=0; i < this.num; i++){
             if(!this.alive[i]){
                 this.x[i] = x;
                 this.y[i] = y;

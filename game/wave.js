@@ -17,14 +17,14 @@ import canvas from './canvasInfo'
 import gInfo from './gameInfo'
 
 export default class WaveObj {
-    static num = 10;
-
     constructor() {
         this.x = [];
         this.y = [];
         this.alive = [];
         this.r = [];
     }
+    
+    num = 10
 
     init() {
         for (var i = 0; i < this.num; i++) {
@@ -51,7 +51,7 @@ export default class WaveObj {
                     this.alive[i] = false;
                     break;
                 };
-                var alpha = 1 - this.r[i] / 60;
+                let alpha = 1 - this.r[i] / 60;
                 ctx1.beginPath();
                 ctx1.arc(this.x[i], this.y[i], this.r[i], 0, Math.PI * 2);
                 ctx1.closePath();

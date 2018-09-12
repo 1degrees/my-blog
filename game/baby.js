@@ -27,7 +27,7 @@ export default class BabyObj {
     }
 
     draw(){
-        let { deltaTime, babyTail, babyBody, babyEye, mom } = gInfo;
+        let { deltaTime, babyTail, babyBody, babyEye, mom, data } = gInfo;
         let { ctx1 } = canvas;
         this.x=lerpDistance(mom.x, this.x, 0.98);
         this.y=lerpDistance(mom.y, this.y, 0.98);

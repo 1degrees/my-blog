@@ -31,6 +31,18 @@ function init(){
     canvasWidth = canvas.canvasWidth = can1.width;
     canvasHeight =  canvas.canvasHeight = can1.height;
 
+    gInfo.ane = new AneObj();
+    gInfo.ane.init();
+    gInfo.fruit=new FruitObj();
+    gInfo.fruit.init();
+    gInfo.mom=new MomObj();
+    gInfo.mom.init();
+    gInfo.baby=new BabyObj();
+    gInfo.baby.init();
+
+    gInfo.mx = canvasWidth*0.5;
+    gInfo.my = canvasHeight*0.5;
+    
     for(var i=0;i<8;i++){
         gInfo.babyTail[i] = new Image();
         gInfo.babyTail[i].src = require('./images/bigTail'+i+'.png');
@@ -65,19 +77,8 @@ function init(){
         gInfo.momBodyBlue[i].src=require('./images/bigSwimBlue'+i+'.png');
     }
     
-    gInfo.mx = canvasWidth*0.5;
-    gInfo.my = canvasHeight*0.5;
-
-    gInfo.ane = new AneObj();
-    gInfo.ane.init();
-    gInfo.fruit=new FruitObj();
-    gInfo.fruit.init();
-    gInfo.mom=new MomObj();
-    gInfo.mom.init();
-    gInfo.baby=new BabyObj();
-    gInfo.baby.init();
     gInfo.data=new DataObj();
-    gInfo.wave=new MomObj();
+    gInfo.wave=new WaveObj();
     gInfo.wave.init();
     gInfo.halo=new HaloObj();
     gInfo.halo.init();
@@ -89,8 +90,8 @@ function init(){
 function gameloop(){
 	window.requestAnimationFrame(gameloop);
 	let now = Date.now();
-	canvas.deltaTime = now - canvas.lastTime;
-	canvas.lastTime = now;
+	gInfo.deltaTime = now - gInfo.lastTime;
+	gInfo.lastTime = now;
     if(gInfo.deltaTime>40) gInfo.deltaTime = 40;
 	canvas.ctx2.drawImage(img, 0, 0, canvas.canvasWidth, canvas.canvasHeight)
     gInfo.ane.draw();

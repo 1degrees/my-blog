@@ -2,7 +2,6 @@ import canvas from './canvasInfo'
 import gInfo from './gameInfo'
 
 export default class AneObj {
-    static num = 50;
     constructor(){
         this.rootx=[];
         this.headx=[];
@@ -11,7 +10,10 @@ export default class AneObj {
         this.alpha=0;
     }
 
+    num = 50
+
     init(){
+        let { canvasHeight } = canvas;
         for(var i=0;i < this.num;i++){
             this.rootx[i] = i*16 + Math.random()*20;
             this.headx[i] = this.rootx[i];
@@ -21,6 +23,7 @@ export default class AneObj {
     }
 
     draw(){
+        // console.log('--------绘制海草-----------')
         let { ctx2, canvasHeight } = canvas;
         let { deltaTime } = gInfo;
         this.alpha += deltaTime*0.0008;
@@ -36,7 +39,6 @@ export default class AneObj {
             this.headx[i]=this.rootx[i]+l*this.amp[i];
             ctx2.quadraticCurveTo(this.rootx[i], canvasHeight - 100,this.headx[i],this.heady[i]);
             ctx2.stroke();
-    
         }
         ctx2.restore()
     }

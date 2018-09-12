@@ -2,14 +2,14 @@ import canvas from './canvasInfo'
 import gInfo from './gameInfo'
 
 export default class DustObj {
-    static num = 30;
-
     constructor(){
         this.x = [];
         this.y = [];
         this.amp = []  //振幅
         this.No = [];  //下标
     }
+    
+    num = 30
 
     init(){
         let { canvasWidth, canvasHeight } = canvas;
