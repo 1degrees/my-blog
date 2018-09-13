@@ -1,7 +1,9 @@
 'use strict';
 
 const express = require('express');
-module.exports = function (server, handle) {
+const LRUCache = require('lru-cache'); 
+
+module.exports = function (app, server, handle) {
   // 服务端页面路由
   /* 配置静态文件夹 */
   server.use('/static', express.static(__dirname + '/static'));
@@ -11,7 +13,7 @@ module.exports = function (server, handle) {
     console.log('*******服务端中间层路由********');
     let arr = ['htm', 'css', 'js', 'frame'];
     if(arr.includes(req.params.id)) {
-      renderAndCache(req, res, '/content', { id : req.params.id });
+      renderAndCache(app, req, res, '/content', { id : req.params.id });
     } else {
       return handle(req, res);
     }
@@ -28,6 +30,12 @@ module.exports = function (server, handle) {
   })
 }
 
+// 缓存设置
+const ssrCache = new LRUCache({
+  max: 500,                   //缓存最大条数
+  maxAge: 1000 * 60 * 60 * 24 // 24hour
+})
+
 /**
  * @function 服务端渲染添加缓存&读取缓存
  * @param { object } req
@@ -35,7 +43,7 @@ module.exports = function (server, handle) {
  * @param { string } pagePath
  * @param { object } queryParams
  */
-function renderAndCache(req, res, pagePath, queryParams) {
+function renderAndCache(app, req, res, pagePath, queryParams) {
     const key = getCacheKey(req);
 
     // 存在缓存，获取缓存
@@ -46,14 +54,14 @@ function renderAndCache(req, res, pagePath, queryParams) {
 
     // 无缓存，重新渲染
     app.renderToHTML(req, res, pagePath, queryParams)
-        .then((html) => {
+      .then((html) => {
         console.log('-----CACHE-KEY-SAVE-----', key)
         ssrCache.set(key, html)
         res.send(html)
-        })
-        .catch((err) => {
+      })
+      .catch((err) => {
         app.renderError(err, req, res, pagePath, queryParams)
-        })
+      })
 }
   
 /**

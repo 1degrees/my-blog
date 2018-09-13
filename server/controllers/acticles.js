@@ -14,7 +14,7 @@ const Article = mongoose.model('Article');
  * List
  */
 exports.List = async(function* (req, res) {
-  const page = req.query.page > 0 ? req.query.page - 1 : 1;
+  const page = req.query.page > 0 ? req.query.page - 1 : 0;
   const limit = 30;
   const options = {
     limit: limit,
@@ -22,6 +22,7 @@ exports.List = async(function* (req, res) {
   };
   const articles = yield Article.list(options);
   const count = yield Article.count();
+  console.log(articles)
   res.json({ list: articles, count})
 });
 

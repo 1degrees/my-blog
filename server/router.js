@@ -2,13 +2,15 @@
 /*
  * Module dependencies.
  */
-const articles = require('./controllers/articles');
-
+const articles = require('./controllers/acticles');
+const menus = require('./controllers/menus');
 /**
  * Expose routes
  */
-module.exports = function (app, passport) {
+module.exports = function (server) {
   // user routes
-  app.post('/articles/list', articles.list);
-  app.post('/articles/save', users.save);
+  server.get('/menus/list', menus.List);
+  server.get('/articles/findByTag', articles.List);
+  server.get('/articles/list', articles.List);
+  server.post('/articles/save', articles.create);
 };

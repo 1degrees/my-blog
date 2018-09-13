@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+console.log('--------Article----model-------------')
+
 const getTags = tags => tags.join(',');
 const setTags = tags => tags.split(',');
 
@@ -77,11 +79,8 @@ ArticleSchema.statics = {
     const criteria = options.criteria || {};
     const page = options.page || 0;
     const limit = options.limit || 30;
-    return this.find(criteria)
-      .limit(limit)
-      .skip(limit * page)
-      .exec();
+    return this.find(criteria).limit(limit).skip(limit * page).exec();
   }
 };
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Article', ArticleSchema, 'article', false);

@@ -4,7 +4,7 @@ import React, { Component }from 'react'
 
 const Menu = list => list.map((e,i) => {
     let item;
-    if(e.child){
+    if(e.child && e.child.length){
       item = (<li key={ e.title }>
                 <a >{ e.title }</a>
                 <ul className="sub-nav" style={{"display": "none"}}>
@@ -21,7 +21,7 @@ const Menu = list => list.map((e,i) => {
 
 const Mnav = (list, unfoldNav) => list.map((e,i) => {
   let item;
-  if(e.child){
+  if(e.child && e.child.length){
     item = (<dt className="list_dt" onClick={ unfoldNav } key={ e.title }>
               <a>{ e.title }</a>
               <dl className="list_dd">
