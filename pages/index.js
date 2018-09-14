@@ -24,7 +24,7 @@ class Index extends Component {
 
   componentWillMount(){
     let query = qs.stringify({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" });
-    axios.get(`http://localhost:8080/articles/list?${query}`)
+    axios.get(`/articles/list?${query}`)
       .then(rs =>{
         this.setState({ articles: rs.data.list })
       })
@@ -35,8 +35,9 @@ class Index extends Component {
     //等待js库加载完成
     let timer = setInterval(e => {
       if(typeof scrollReveal != "undefined" &&
-          typeof $ != "undefined" &&
-            $('#banner').easyFader) {
+         typeof $ != "undefined" && 
+         $('#banner')[0] &&
+         $('#banner').easyFader) {
         window.scrollReveal = new scrollReveal({ reset: true });
         $('#banner').easyFader();
         clearInterval(timer);

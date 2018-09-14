@@ -12,7 +12,7 @@ export default class Article extends Component {
 
     componentDidMount(){
         let query = qs.stringify({ "title": this.props.link });
-        axios.get(`http://localhost:8080/articles/list?${query}`)
+        axios.get(`/articles/list?${query}`)
             .then(rs =>{
             article = rs.data.list[0];
             $('.infosbox > .newsview').html(article.content)

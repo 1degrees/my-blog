@@ -138,7 +138,7 @@ class Note extends Component {
       } 
     });
     this.form.resetFields();
-    axios.post('http://localhost:8080/articles/save', article).then( rs => {
+    axios.post('/articles/save', article).then( rs => {
       this.setState({ link : article.link, success : true });
     })
   }

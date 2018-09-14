@@ -32,7 +32,7 @@ class Contents extends Component {
 
   componentWillMount(){
     let query = qs.stringify({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" });
-    axios.get(`http://localhost:8080/articles/list?${query}`)
+    axios.get(`/articles/list?${query}`)
       .then(rs =>{
         articles = rs.data.list;
         this.setState({ articles });
