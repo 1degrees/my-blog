@@ -14,15 +14,28 @@ const Article = mongoose.model('Article');
  * List
  */
 exports.List = async(function* (req, res) {
+  console.log(req.body, req.query, req.params)
+  let criteria = {};
+  if(req.body){
+    for(let key in req.query){
+      let val = req.query[key];
+      if(val && val.includes(',')){
+        let vals = val.split(',');
+        criteria[key] = {'$in': vals};
+      } else {
+        criteria[key] = val;
+      }
+    }
+  }
   const page = req.query.page > 0 ? req.query.page - 1 : 0;
   const limit = 30;
   const options = {
+    criteria,
     limit: limit,
     page: page
   };
   const articles = yield Article.list(options);
   const count = yield Article.count();
-  console.log(articles)
   res.json({ list: articles, count})
 });
 
@@ -31,12 +44,12 @@ exports.List = async(function* (req, res) {
  * Upload an image
  */
 exports.create = async(function* (req, res) {
-  const article = new Article(only(req.body, 'title body tags'));
+  const article = new Article(only(req.body, 'title author description time content images'));
   try {
-    const rs = yield article.uploadAndSave(req.file);
-    res.json(rs)
+    yield article.save();
+    res.json({ status: '保存成功' })
   } catch (err) {
-    res.json(err)
+    res.json({ status: '保存失败' })
   }
 });
 

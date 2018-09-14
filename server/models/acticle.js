@@ -76,6 +76,7 @@ ArticleSchema.statics = {
    * @api private
    */
   list: function (options) {
+    console.log(options.criteria)
     const criteria = options.criteria || {};
     const page = options.page || 0;
     const limit = options.limit || 30;

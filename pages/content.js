@@ -2,10 +2,12 @@ import React, { Component }from 'react'
 import Layout from '@components/view/Layout'
 import dynamic from 'next/dynamic'
 import Router, { withRouter } from 'next/router'
-import articles from '../data/article';
+import axios from 'axios'
+import qs from 'qs'
 
 const Blogsbox = dynamic(import('../components/blogsbox'));
 const Sidebar = dynamic(import('../components/sidebar'));
+let articles = [];
 
 class Contents extends Component {
   static getInitialProps ({ req }) {
@@ -28,9 +30,13 @@ class Contents extends Component {
     this.setState({ blogs });
   }
 
-  componentDidMount(){
-    console.log('------componentDidMount--Contents-----')
-    this.updateBlogs(this.props);
+  componentWillMount(){
+    let query = qs.stringify({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" });
+    axios.get(`http://localhost:8080/articles/list?${query}`)
+      .then(rs =>{
+        articles = rs.data.list;
+        this.updateBlogs(this.props);
+      })
   }
 
   componentWillReceiveProps(nextProps){

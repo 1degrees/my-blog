@@ -4,6 +4,9 @@ import Router, { withRouter } from 'next/router'
 import { Modal, Form, Button, Select, Input } from 'antd'
 import Layout from '@components/view/Layout'
 import _, { get, set } from 'lodash'
+import axios from 'axios'
+import qs from 'qs'
+
 const { TextArea } = Input;
 const { Option } = Select;
 const FormItem = Form.Item;
@@ -122,7 +125,6 @@ class Note extends Component {
   handleOk = () => {
     this.form.validateFields((err, values) => {
       if (!err) {
-        this.setState({ show: false });
         let title = this.state.fields.title.value,
             tag  = this.state.fields.tag.value,
             password = this.state.fields.password.value,
@@ -130,8 +132,19 @@ class Note extends Component {
             time =  _.now('yyyy-MM-dd hh:mm:ss'),
             content = this.editor.txt.html();
         let article = { title, description, content, tag, time, author:"张啸", views : 0, likes : 0 };
+        this.setState({ 
+          show: false,
+          fields: {
+            title: {  value: '' },
+            description: {  value: '' },
+            tag: { },
+            password: {  value: '' }
+          } 
+        });
         this.form.resetFields();
-        console.log(article)
+        axios.post('http://localhost:8080/articles/save', article).then( rs => {
+          
+        })
       }
     });
   }

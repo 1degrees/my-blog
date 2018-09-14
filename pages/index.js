@@ -3,7 +3,8 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import Router, { withRouter } from 'next/router'
 import Layout from '@components/view/Layout'
-import articles from '../data/article';
+import axios from 'axios'
+import qs from 'qs'
 
 const Banner = dynamic(import('../components/banner'));
 const Blogsbox = dynamic(import('../components/blogsbox'));
@@ -18,14 +19,21 @@ class Index extends Component {
   constructor (props) {
     console.log('------constructor--Index-----')
     super(props);
-    this.state = {  articles };
+    this.state = {  articles : [] };
+  }
+
+  componentWillMount(){
+    let query = qs.stringify({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" });
+    axios.get(`http://localhost:8080/articles/list?${query}`)
+      .then(rs =>{
+        this.setState({ articles: rs.data.list })
+      })
   }
 
   componentDidMount(){
     console.log('------componentDidMount--Index-----');
     //等待js库加载完成
     let timer = setInterval(e => {
-      console.log('------timer------');
       if(typeof scrollReveal != "undefined" &&
           typeof $ != "undefined" &&
             $('#banner').easyFader) {

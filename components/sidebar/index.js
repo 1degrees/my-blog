@@ -1,9 +1,7 @@
 import React, { Component }from 'react';
-// import articles from '../../data/articles';
 
 export default class sidebar extends Component {
   constructor (props) {
-    console.log('------constructor--Index-----');
     super(props);
   }
 
