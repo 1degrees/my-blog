@@ -35,6 +35,7 @@ class Contents extends Component {
     axios.get(`http://localhost:8080/articles/list?${query}`)
       .then(rs =>{
         articles = rs.data.list;
+        this.setState({ articles });
         this.updateBlogs(this.props);
       })
   }

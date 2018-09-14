@@ -5,6 +5,8 @@ export default class sidebar extends Component {
     super(props);
   }
 
+  followTop = 2800
+
   scroll = () => {
     if (window.scrollY - this.followTop > 0) {
       !$('#follow-us').hasClass('gd') && $('#follow-us').addClass('gd');
@@ -14,7 +16,9 @@ export default class sidebar extends Component {
   }
 
   componentDidMount(){
-    this.followTop = $('#follow-us').offset().top;
+    setTimeout(()=>{
+      this.followTop = $('#follow-us').offset().top
+    },2000);
     $(window).on('scroll', this.scroll);
   }
   
@@ -24,13 +28,23 @@ export default class sidebar extends Component {
 
   render(){
     let { articles } = this.props;
+    let recomArt = articles.filter((e,i) => {
+      return e.views > 300;
+    }), sRecomArt = articles.filter((e,i) => {
+      return e.likes > 100;
+    }), rankArt = articles.filter((e,i) => {
+      return e.views > 100;
+    });
+    rankArt = rankArt.sort((a,b) => {
+      return a.views - b.views;
+    })
     return (
       <div className="sidebar">
         <div className="zhuanti">
           <h2 className="hometitle">特别推荐</h2>
           <ul>
             {
-              articles.slice(0,3).map((e,i) => {
+              sRecomArt.map((e,i) => {
                 return (<li key={ i }> 
                           <i><img src={ e.images[0] }/></i>
                           <p>{ e.title }<span><a href={ e.link }>阅读</a></span> </p>
@@ -42,7 +56,7 @@ export default class sidebar extends Component {
         <div className="tuijian">
           <h2 className="hometitle">推荐文章</h2>
           {
-            articles.slice(0,1).map((e,i) => {
+            recomArt.slice(0,1).map((e,i) => {
               return (<ul className="tjpic" key={ i }>
                         <i><img src={ e.images[0] }/></i>
                         <p><a href={ e.link }>{ e.title }</a></p>
@@ -52,7 +66,7 @@ export default class sidebar extends Component {
           
           <ul className="sidenews">
             {
-              articles.slice(0,3).map((e,i) => {
+              recomArt.slice(1,3).map((e,i) => {
                 return (<li key={ i }> 
                           <i><img src={ e.images[0] }/></i>
                           <p><a href={ e.link }>{ e.title }</a></p>
@@ -70,7 +84,7 @@ export default class sidebar extends Component {
           </ul>
           <ul className="sidenews">
             {
-              articles.slice(0,3).map((e,i) => {
+              rankArt.slice(0,3).map((e,i) => {
                 return (<li key={ i }> 
                           <i><img src={ e.images[0] }/></i>
                           <p><a href={ e.link }>{ e.title }</a></p>
