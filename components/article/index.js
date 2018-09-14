@@ -1,17 +1,29 @@
-import axios from 'axios'
 import React, { Component }from 'react'
+import axios from 'axios'
+import qs from 'qs'
+import { $mobx } from 'mobx';
 
+let article = '';
 export default class Article extends Component {
-    componentWillMount(){
-        console.log('articlearticlearticlearticle')
-        axios.get('https://wsf.zhihu.com/p/37744733').then(rs=>{
-            console.log(rs);
-        })
+    constructor(props){
+        super(props);
+        this.state = { article };
+    }
+
+    componentDidMount(){
+        let query = qs.stringify({ "title": this.props.link });
+        axios.get(`http://localhost:8080/articles/list?${query}`)
+            .then(rs =>{
+            article = rs.data.list[0];
+            $('.infosbox > .newsview').html(article.content)
+            })
     }
   
     render(){
       return (
-        <div className="news_infos">
+        <div className="infosbox">
+            <div className="newsview">
+            </div>
         </div>)
     }
 } 

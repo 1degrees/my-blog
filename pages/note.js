@@ -39,6 +39,9 @@ const CustomizedForm = Form.create({
 })((props) => {
   const { getFieldDecorator } = props.form;
   props.setValidateFields(props.form);
+  let checkPassword = (rule, value, callback) => {
+    (value && value != "zhangxiao")? callback( '密码错误,亲木有编辑权限哦！') : callback()
+  }
   return (
     <Form onSubmit={this.handleSubmit} className="login-form">
       <FormItem>
@@ -68,7 +71,8 @@ const CustomizedForm = Form.create({
       </FormItem>
       <FormItem style={{ display: 'inline-block', 'width' : '300px', 'margin' : '-3px 0 0 50px' ,'color': 'red' }}>
         {getFieldDecorator('password', {
-          rules: [{ required: true, message: 'Please input your password!' }],
+          rules: [{ required: true, message: '请输入密码(仅限博主使用)!' }, 
+                  { validator: checkPassword }],
         })(
           <Input className="p-password" type="password" placeholder="私人博客,输入密码"/>
         )}
@@ -118,7 +122,24 @@ class Note extends Component {
   submit = () => {
     this.setState({
       show: true,
-      loading: true
+      loading: true,
+      success : false
+    })
+  }
+
+  submitContent = (article) =>{
+    this.setState({ 
+      show: false,
+      fields: {
+        title: {  value: '' },
+        description: {  value: '' },
+        tag: { },
+        password: {  value: '' }
+      } 
+    });
+    this.form.resetFields();
+    axios.post('http://localhost:8080/articles/save', article).then( rs => {
+      this.setState({ link : article.link, success : true });
     })
   }
 
@@ -126,35 +147,34 @@ class Note extends Component {
     this.form.validateFields((err, values) => {
       if (!err) {
         let title = this.state.fields.title.value,
+            link = `/article?title=${title}`,
             tag  = this.state.fields.tag.value,
             password = this.state.fields.password.value,
             description = this.state.fields.description.value,
             time =  _.now('yyyy-MM-dd hh:mm:ss'),
             content = this.editor.txt.html();
-        let article = { title, description, content, tag, time, author:"张啸", views : 0, likes : 0 };
-        this.setState({ 
-          show: false,
-          fields: {
-            title: {  value: '' },
-            description: {  value: '' },
-            tag: { },
-            password: {  value: '' }
-          } 
-        });
-        this.form.resetFields();
-        axios.post('http://localhost:8080/articles/save', article).then( rs => {
-          
-        })
+        let article = { title, link, description, content, tag, time, author:"张啸", views : 0, likes : 0 };
+        if(password == 'zhangxiao'){
+          this.submitContent(article);
+        } else {
+
+        }
       }
     });
   }
   
   handleCancel = () => {
-    this.form.resetFields();
-    this.setState({
+    this.setState({ 
       show: false,
-      loading: false
-    })
+      loading: false,
+      fields: {
+        title: {  value: '' },
+        description: {  value: '' },
+        tag: { },
+        password: {  value: '' }
+      } 
+    });
+    this.form.resetFields();
   }
 
   handleFormChange = (val) => {
@@ -163,7 +183,11 @@ class Note extends Component {
     });
   }
 
+  cancel = () => {
+    this.setState({ success : false})
+  }
   render() {
+    let link = this.state.link;
     return (
         <Layout>
           <Head>
@@ -181,6 +205,12 @@ class Note extends Component {
                   onOk={this.handleOk}
                   onCancel={this.handleCancel}>
             <CustomizedForm {...this.state.fields } setValidateFields={ this.setValidateFields } onChange={this.handleFormChange}></CustomizedForm>
+          </Modal>
+          <Modal  title="提交成功" 
+                  onOk={this.cancel}
+                  onCancel={this.cancel}
+                  visible={this.state.success}>
+              <a href={ link } target="_blank">点击此处、查看文章详情</a>
           </Modal>
           <a href="#" className="cd-top">Top</a>
         </Layout>
