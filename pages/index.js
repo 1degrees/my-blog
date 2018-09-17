@@ -34,10 +34,8 @@ class Index extends Component {
     console.log('------componentDidMount--Index-----');
     //等待js库加载完成
     let timer = setInterval(e => {
-      if(typeof scrollReveal != "undefined" &&
-         typeof $ != "undefined" && 
-         $('#banner')[0] &&
-         $('#banner').easyFader) {
+      if(typeof scrollReveal != "undefined" &&typeof $ != "undefined" &&
+        $('#banner > li').length == 3 && $('#banner').easyFader) {
         window.scrollReveal = new scrollReveal({ reset: true });
         $('#banner').easyFader();
         clearInterval(timer);
