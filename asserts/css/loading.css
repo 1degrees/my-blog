@@ -1,0 +1,241 @@
+@keyframes k-loadingE {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.loading-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999999;
+}
+
+.load-5 {
+    display: inline-block;
+    width: 120px;
+    min-height: 120px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 6px;
+    padding: 10px 5px 15px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+
+}
+
+.load-5 p {
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+.k-ring-2 {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+    border: 4px solid #9C27B0;
+    border-radius: 100%
+}
+
+.k-ball-holder2 {
+    position: absolute;
+    width: 12px;
+    height: 45px;
+    left: 17px;
+    top: 0
+}
+
+.k-ball-holder2 {
+    animation: k-loadingE 2s linear infinite
+}
+
+.k-ball1e {
+    position: absolute;
+    top: -10px;
+    left: -1px;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #CDDC39
+}
+
+.k-ball2c {
+    position: absolute;
+    bottom: -10px;
+    left: -1px;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #F44336
+}
+
+.k-ball5b {
+    position: absolute;
+    top: 14px;
+    left: -26px;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #4CAF50
+}
+
+.k-ball6b {
+    position: absolute;
+    top: 14px;
+    right: -26px;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #3F51B5
+}
+
+/*第二种动画 开始*/
+@-webkit-keyframes opacityLoading {
+    3% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+}
+
+@keyframes opacityLoading {
+    3% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+}
+
+.k-ring-new {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.l {
+    position: absolute;
+    top: 0;
+    left: 27px;
+    width: 6px;
+    height: 100%;
+    transform-origin: 50% 50%;
+}
+
+.l span {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    background-color: #fff;
+    opacity: 0;
+    -webkit-animation: opacityLoading 1s linear infinite;
+    animation: opacityLoading 1s linear infinite;
+}
+
+.l10 span {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+.l9 span {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+
+.l8 span {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+
+.l7 span {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+
+.l6 span {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+.l5 span {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+
+.l4 span {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+
+.l3 span {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+.l2 span {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+.l1 span {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.l1 {
+    transform: rotate(0deg);
+}
+
+.l2 {
+    transform: rotate(36deg);
+}
+
+.l3 {
+    transform: rotate(72deg);
+}
+
+.l4 {
+    transform: rotate(108deg);
+}
+
+.l5 {
+    transform: rotate(144deg);
+}
+
+.l6 {
+    transform: rotate(180deg);
+}
+
+.l7 {
+    transform: rotate(216deg);
+}
+
+.l8 {
+    transform: rotate(252deg);
+}
+
+.l9 {
+    transform: rotate(288deg);
+}
+.l10 {
+    transform: rotate(324deg);
+}
+
+/*第二种动画 结束*/
