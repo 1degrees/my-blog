@@ -12,9 +12,9 @@
     "build:test": "cross-env NODE_ENV=testing next build",
     "build:prod": "cross-env NODE_ENV=production next build",
     "start": "cross-env PORT=8080 NODE_ENV=production node server.js",
-    "pm2-start": "pm2 start server.js --watch --name wsf-www-ssr",
-    "pm2-delete": "pm2 delete wsf-www-ssr",
-    "pm2-stop": "pm2 stop wsf-www-ssr"
+    "pm2-start": "pm2 start server.js --watch --name my-blog",
+    "pm2-delete": "pm2 delete my-blog",
+    "pm2-stop": "pm2 stop my-blog"
   },
   "dependencies": {
     "@zeit/next-less": "0.3.0",
