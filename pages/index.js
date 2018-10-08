@@ -5,7 +5,7 @@ import Router, { withRouter } from 'next/router'
 import Layout from '@components/view/Layout'
 import axios from 'axios'
 import qs from 'qs'
-import { BASE_URL } from '../config'
+import BASE_URL from '../config'
 
 const Banner = dynamic(import('../components/banner'));
 const Blogsbox = dynamic(import('../components/blogsbox'));
@@ -25,7 +25,7 @@ class Index extends Component {
 
   componentWillMount(){
     let query = qs.stringify({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" });
-    axios.get(`${BASE_URL}/articles/list?${query}`)
+    axios.get(`${BASE_URL.url}/articles/list?${query}`)
       .then(rs =>{
         this.setState({ articles: rs.data.list })
       })

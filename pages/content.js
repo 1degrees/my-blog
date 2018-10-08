@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import Router, { withRouter } from 'next/router'
 import axios from 'axios'
 import qs from 'qs'
-import { BASE_URL } from '../config'
+import BASE_URL from '../config'
 
 const Blogsbox = dynamic(import('../components/blogsbox'));
 const Sidebar = dynamic(import('../components/sidebar'));
@@ -33,7 +33,7 @@ class Contents extends Component {
 
   componentWillMount(){
     let query = qs.stringify({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" });
-    axios.get(`${BASE_URL}/articles/list?${query}`)
+    axios.get(`${BASE_URL.url}/articles/list?${query}`)
       .then(rs =>{
         articles = rs.data.list;
         this.setState({ articles });
