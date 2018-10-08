@@ -37,8 +37,6 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "cross-env": "^5.1.6",
-    "dotenv": "^6.0.0",
-    "dotenv-webpack": "^1.5.7",
     "express": "^4.14.0",
     "file-loader": "^1.1.11",
     "styled-jsx-css-loader": "^0.3.0",
