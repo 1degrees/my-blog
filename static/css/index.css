@@ -152,7 +152,6 @@ h1.t_nav { border-bottom: #bfbfbf 1px solid; font-size: 14px; font-weight: norma
 .abd { background: url(/static/images/page_bg_03.jpg) no-repeat; background-size: cover; background-position: top center; }
 .timer { background: url(/static/images/page_time.jpg) no-repeat; background-size: cover; background-position: top center; }
 /*share*/
-.editor { min-height: 600px }
 .game { height: 600px; position: relative; }
 .game #canvas1{
     position: absolute;
