@@ -6,6 +6,7 @@ import Layout from '@components/view/Layout'
 import _, { get, set } from 'lodash'
 import axios from 'axios'
 import qs from 'qs'
+import { BASE_URL } from '../config'
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -138,7 +139,7 @@ class Note extends Component {
       } 
     });
     this.form.resetFields();
-    axios.post('/articles/save', article).then( rs => {
+    axios.post(`${BASE_URL}/articles/save`, article).then( rs => {
       this.setState({ link : article.link, success : true });
     })
   }
