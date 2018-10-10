@@ -17,7 +17,7 @@ export default class sidebar extends Component {
 
   componentDidMount(){
     setTimeout(()=>{
-      this.followTop = $('#follow-us')[0] ?followTop : $('#follow-us').offset().top
+      this.followTop = !$('#follow-us')[0] ? this.followTop : $('#follow-us').offset().top
     },2000);
     $(window).on('scroll', this.scroll);
   }
