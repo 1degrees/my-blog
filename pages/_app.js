@@ -2,7 +2,7 @@
  * @Author: houzhitao 
  * @Date: 2018-08-29 14:20:01 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-10-08 17:39:39
+ * @Last Modified time: 2018-10-10 15:33:38
  * @file: 全局注入store，用作状态保留页面 （经测试react生命周期仅在首次进入调用）
  */
 
@@ -13,7 +13,6 @@ import { Provider } from 'mobx-react'
 import NextSeo from 'next-seo';
 import SEO from '../seo/base-seo.js';
 import Loading from '../components/loading'
-import '../asserts/css/styles.less'
 
 require('../comUtils/intercept');
 class MyApp extends App {

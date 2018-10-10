@@ -17,7 +17,7 @@
     "pm2-stop": "pm2 stop my-blog"
   },
   "dependencies": {
-    "@zeit/next-less": "0.3.0",
+    "@zeit/next-less": "^1.0.1",
     "antd": "^3.5.4",
     "axios": "^0.18.0",
     "less": "3.0.4",
@@ -25,7 +25,7 @@
     "lru-cache": "^4.1.3",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.5",
-    "next": "^6.1.2",
+    "next": "^7.0.1",
     "qs": "^6.5.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -33,9 +33,11 @@
     "wangeditor": "^3.1.1"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.7.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-import": "^1.9.1",
+    "@babel/plugin-proposal-decorators": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "dotenv": "^6.0.0",
+    "dotenv-webpack": "^1.5.7",
     "cross-env": "^5.1.6",
     "express": "^4.14.0",
     "file-loader": "^1.1.11",

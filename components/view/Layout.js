@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-09-06 15:55:01
+ * @Last Modified time: 2018-10-10 15:36:54
  * @file: 页面布局组件
  */
 
@@ -10,8 +10,9 @@ import React, { Component }from 'react'
 import Headers from './Header'
 import Footer from './Footer'
 
-class Layout extends Component {
+import '../../asserts/css/styles.less'
 
+class Layout extends Component {
   componentDidMount(){
     //回到顶部
     let offset = 300,
