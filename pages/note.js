@@ -5,7 +5,6 @@ import { Modal, Form, Button, Select, Input } from 'antd'
 import Layout from '@components/view/Layout'
 import _, { get, set } from 'lodash'
 import axios from 'axios'
-import qs from 'qs'
 import BASE_URL from '../config'
 
 const { TextArea } = Input;
@@ -187,6 +186,7 @@ class Note extends Component {
   cancel = () => {
     this.setState({ success : false})
   }
+  
   render() {
     let link = this.state.link;
     return (
