@@ -57,5 +57,5 @@ next-react-ssr
 ├─static                    ----CDN静态资源目录
 └─stores                    ----mobx状态管理库
 ```
-# 项目示例图
-![示例图1](static/images/ssr.jpg)
+# 项目示例链接
+http://www.aka.today:8080/
