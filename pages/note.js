@@ -44,7 +44,7 @@ const CustomizedForm = Form.create({
     (value && value != "zhangxiao")? callback( '密码错误,亲木有编辑权限哦！') : callback()
   }
   return (
-    <Form onSubmit={this.handleSubmit} className="login-form">
+    <Form className="login-form">
       <FormItem>
         {getFieldDecorator('title', {
           rules: [{ required: true, message: 'Please input your title!' }],
@@ -63,7 +63,7 @@ const CustomizedForm = Form.create({
         {getFieldDecorator('tag', {
           rules: [{ required: true, message: 'Please input your tag!' }],
         })(
-          <Select className="article-tag" placeholder="文章分类" dropdownStyle={{ zIndex: 10002 }} onChange={this.handleChange}>
+          <Select className="article-tag" placeholder="文章分类" dropdownStyle={{ zIndex: 10002 }}>
             <Option value="旅游日记">旅游日记</Option>
             <Option value="程序人生">程序人生</Option>
             <Option value="语录心得" >语录心得</Option>
