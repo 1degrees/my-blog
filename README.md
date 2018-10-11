@@ -31,9 +31,11 @@ UI框架方面，集成了 <https://ant.design/index-cn>
 
 1 npm install
 
-2 npm run dev
+2 启动Next服务：npm run dev
 
-3 浏览器打开http://localhost:3000
+3 启动Node服务(后台接口)：npm run server
+
+4 浏览器打开 http://localhost:3000
 
 # 生产坏境部署
 
@@ -57,5 +59,6 @@ next-react-ssr
 ├─static                    ----CDN静态资源目录
 └─stores                    ----mobx状态管理库
 ```
+
 # 项目示例链接
 http://www.aka.today:8080/
