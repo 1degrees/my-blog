@@ -10,10 +10,12 @@ module.exports = function (app, server, handle) {
 
   /* 服务端路由 */
   server.get('/:id', (req, res) => {
-    console.log('*******服务端中间层路由********');
-    let arr = ['htm', 'css', 'js', 'frame'];
-    if(arr.includes(req.params.id)) {
+    let arrC = ['htm', 'css', 'js', 'frame'],
+        arrA = ['lifes', 'travel', 'ngc'];
+    if(arrC.includes(req.params.id)) {
       renderAndCache(app, req, res, '/content', { id : req.params.id });
+    } else if(arrA.includes(req.params.id)){
+      renderAndCache(app, req, res, '/articles', { id : req.params.id });
     } else {
       return handle(req, res);
     }

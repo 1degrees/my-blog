@@ -99,7 +99,7 @@ class Note extends Component {
       fields: {
         title: {  value: '' },
         description: {  value: '' },
-        tag: { },
+        tag: { value: '' },
         password: {  value: '' }
       }
      };
@@ -128,19 +128,19 @@ class Note extends Component {
   }
 
   submitContent = (article) =>{
+    axios.post(`${BASE_URL.url}/articles/save`, article).then( rs => {
+      this.setState({ link : article.link, success : true });
+    })
     this.setState({ 
       show: false,
       fields: {
         title: {  value: '' },
         description: {  value: '' },
-        tag: { },
+        tag: { value: '' },
         password: {  value: '' }
       } 
     });
     this.form.resetFields();
-    axios.post(`${BASE_URL.url}/articles/save`, article).then( rs => {
-      this.setState({ link : article.link, success : true });
-    })
   }
 
   handleOk = () => {
@@ -156,8 +156,6 @@ class Note extends Component {
         let article = { title, link, description, content, tag, time, author:"张啸", views : 0, likes : 0 };
         if(password == 'zhangxiao'){
           this.submitContent(article);
-        } else {
-
         }
       }
     });

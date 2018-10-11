@@ -1,5 +1,6 @@
 export default {
     "title": '个人博客 - 一个站在web前端设计之路的技术员个人博客网站(张啸)',
+    "referrer": "no-referrer",
     "Content-Type": 'text/html; charset=utf-8',
     "X-UA-Compatible": 'IE=edge,chrome=1',
     "force-rendering": 'webkit',
