@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-10-11 14:12:38
+ * @Last Modified time: 2018-10-11 14:17:40
  * @file: 页面布局组件
  */
 
@@ -45,7 +45,7 @@ class Layout extends Component {
   render () {
     let { children } = this.props;
     return (
-      <div style={{"zIndex": 1,"position": "relative"}}>
+      <div style={{ "position": "relative","zIndex": 0 }}>
         <Headers/>
         {children}
         <a className="cd-top">Top</a>
