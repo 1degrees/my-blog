@@ -18,18 +18,15 @@
 
 .load-5 {
     display: inline-block;
+    position: relative;
+    margin: 50%;
     width: 120px;
     min-height: 120px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    margin: auto;
-    background: rgba(0, 0, 0, .5);
-    border-radius: 6px;
     padding: 10px 5px 15px;
+    border-radius: 6px;
     text-align: center;
     transform: translate(-50%, -50%);
-
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .load-5 p {

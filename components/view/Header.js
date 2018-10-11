@@ -96,7 +96,7 @@ export default class Headers extends Component {
                 </nav>
               </div>
               <div id="mnav">
-                <h2 className="mtitle" onClick={ this.openOrClose }><a href="/" className="mlogo">那个人博客</a><span className="navicon"></span></h2>
+                <h2 className="mtitle" onClick={ this.openOrClose }><a href="/" className="mlogo">羡慕城里的娃</a><span className="navicon"></span></h2>
                 <dl className="list_dl" style={{"display": "none"}}>
                   { Mnav(menus,this.unfoldNav) }
                 </dl>
