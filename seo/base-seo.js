@@ -6,7 +6,7 @@ export default {
     "force-rendering": 'webkit',
     "renderer" : 'webkit',
     "viewport": 'width=device-width, initial-scale=1',
-    "keywords": '个人博客,张啸个人博客,个人博客模板,张啸',
+    "keywords": '个人博客,Next项目Demo,服务端渲染,Nextjs',
     "description": '张啸个人博客，是一个站在web前端设计之路的程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。',
     "author": "zhangxiao@wshifu.com",
   };
