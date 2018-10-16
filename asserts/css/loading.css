@@ -17,9 +17,10 @@
 }
 
 .load-5 {
-    display: inline-block;
     position: relative;
-    margin: 50%;
+    display: inline-block;
+    margin-top: 50vh;
+    margin-left: 50vw;
     width: 120px;
     min-height: 120px;
     padding: 10px 5px 15px;
