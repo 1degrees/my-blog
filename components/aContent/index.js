@@ -17,7 +17,7 @@ export default () => (
           5·熟悉Angularjs框架、gulp使用，能快速融入其项目开发。<br />
           4·熟练掌握Next、Nuxt服务端渲染技术。<br />
           8·熟悉微信小程序、h5移动端开发。<br />
-          9·熟练掌握jQuery，浅显阅读过jQuery、vue源码解析。
+          9·熟练掌握jQuery，浅显阅读过jQuery、vue源码解析。<br />
           10·了解掌握数据结构和算法设计。
           <br />
           <br />
