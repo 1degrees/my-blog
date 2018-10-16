@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-29 14:20:01 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-10-10 15:33:29
+ * @Last Modified time: 2018-10-16 16:17:23
  * @file: 全局引入样式，外部组件库页面 (经测试不存react在生命周期)
  */
 import Document, { Head, Main, NextScript } from 'next/document'
@@ -17,9 +17,10 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <link href="/static/css/base.css" rel="stylesheet"/>
-          <link href="/static/css/index.css" rel="stylesheet"/>
-          <link href="/static/css/m.css" rel="stylesheet"/>
+          <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon"/>
+          <link rel="stylesheet" href="/static/css/base.css"/>
+          <link rel="stylesheet" href="/static/css/index.css"/>
+          <link rel="stylesheet" href="/static/css/m.css"/>
           <script src="/static/js/modernizr.js"></script>
           <script src="/static/js/jquery.min.js"></script>
         </Head>
