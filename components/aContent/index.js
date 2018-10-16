@@ -31,7 +31,7 @@ export default () => (
         </li>
         <li>
           <h2>About my blog</h2>
-          <p>域 名：www.sohutree.com 创建于2018年10月12日&nbsp;&nbsp;</p>
+          <p>域 名：www.aka.today 创建于2017年12月12日&nbsp;&nbsp;</p>
           <p>服务器：阿里云服务器&nbsp;&nbsp;<a href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=8smrzoqa&amp;productCode=vm" target="_blank"><span style={{"color" : "#FF0000"}}><strong>前往阿里云官网购买&gt;&gt;</strong></span></a></p>
         </li>
       </ul>
