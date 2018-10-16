@@ -25,7 +25,7 @@ class Articles extends Component {
 
   updateBlogs = nextProps => {
     console.log("----------updateBlogs-----------");
-    let tabs = {"lifes":"旅游日记","travel": "程序人生","ngc":"语录心得"},
+    let tabs = {"lifes":"程序人生","travel": "旅游日记","ngc":"语录心得"},
         { query } = nextProps.router,
         { id } = query;
     let blogs = articles.filter((e,i) => e.tag.toLocaleLowerCase().includes(tabs[id]))
