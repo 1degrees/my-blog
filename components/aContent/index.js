@@ -18,13 +18,14 @@ export default () => (
           4·熟练掌握Next、Nuxt服务端渲染技术。<br />
           8·熟悉微信小程序、h5移动端开发。<br />
           9·熟练掌握jQuery，浅显阅读过jQuery、vue源码解析。
+          10·了解掌握数据结构和算法设计。
           <br />
           <br />
           <h2>|-后端技能</h2>
           1·熟悉了解Java、NodeJs<br />
           2·掌握Java语言基础知识、以及面向对象软件开发的思想，熟悉网络编程、I/O流、线程、JDBC等技术，熟悉Java多并发编程及线程池使用。<br />
           3·熟悉使用maven库管理工具。<br />
-          4·掌握SQL语言；熟悉Oracle、MySQL、MongoDB数据库。
+          4·了解SQL语言；熟悉Oracle、MySQL、MongoDB数据库。
           <br />
           <br />
         </li>
