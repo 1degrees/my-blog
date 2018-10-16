@@ -15,9 +15,9 @@ export default () => (
           PC端UI组件，熟练less、sass等css预编译语言，更高效简洁的完成前端布局。<br />
           3·熟练掌握React、mobx、React-Router、Webpack构建前端框架，熟悉react相关的UI库。<br />
           5·熟悉Angularjs框架、gulp使用，能快速融入其项目开发。<br />
-          4·熟练掌握Next、Nuxt服务端渲染技术。<br />
-          8·熟悉微信小程序、h5移动端开发。<br />
-          9·熟练掌握jQuery，浅显阅读过jQuery、vue源码解析。<br />
+          4·熟练掌握Next、Nuxt服务端渲染框架技术。<br />
+          8·熟练掌握jQuery，浅显阅读过jQuery、vue源码解析。<br />
+          9·熟悉微信小程序、h5移动端开发。<br />
           10·了解掌握数据结构和算法设计。
           <br />
           <br />
