@@ -9,21 +9,22 @@ export default () => (
           <br />
           <br />
           <h2>|-前端技能</h2>
-          1·熟练HTML、CSS3、ES6基础知识；熟练HTML语义化编程；深刻理解js原型、原型链，掌握Javascript面向对象编程设计思想；
-          熟练掌握flex布局、响应式布局。<br />
+          1·熟练HTML、CSS3、JavaScript(ES5、ES6)基础知识；熟练HTML语义化编程；熟练掌握flex布局、响应式布局、css3动画；
+          深刻理解js原型、原型链，掌握Javascript面向对象编程设计思想。<br />
           2·熟练掌握VUE、VUEX、VUE-Router、Webpack、Node构建前端框架，熟练Mint-UI、Element-UI、Bootstrap等移动端、
           PC端UI组件，熟练less、sass等css预编译语言，更高效简洁的完成前端布局。<br />
           3·熟练掌握React、mobx、React-Router、Webpack构建前端框架，熟悉react相关的UI库。<br />
-          5·熟悉Angularjs框架、gulp使用，能快速融入其项目开发。<br />
-          4·熟练掌握Next、Nuxt服务端渲染框架技术。<br />
-          8·熟练掌握jQuery，浅显阅读过jQuery、vue源码解析。<br />
-          9·熟悉微信小程序、h5移动端开发。<br />
-          10·了解掌握数据结构和算法设计。
+          4·了解Angularjs框架、gulp使用，能快速融入其项目开发。<br />
+          5·熟练掌握Next、Nuxt服务端渲染框架技术。<br />
+          6·熟练jQuery，浅显阅读过jQuery、vue源码解析。<br />
+          7·熟悉Web Worker线程API, 了解PWA(Progressive Web App)基本原理。<br />
+          8·熟悉了解微信小程序、h5移动端开发。<br />
+          9·了解掌握数据结构和算法设计。
           <br />
           <br />
           <h2>|-后端技能</h2>
           1·熟悉了解Java、NodeJs<br />
-          2·掌握Java语言基础知识、以及面向对象软件开发的思想，熟悉网络编程、I/O流、线程、JDBC等技术，熟悉Java多并发编程及线程池使用。<br />
+          2·掌握Java语言基础知识、以及面向对象软件开发的思想，了解网络编程、I/O流、线程、JDBC等技术，了解Java多并发编程及线程池使用。<br />
           3·熟悉使用maven库管理工具。<br />
           4·了解SQL语言；熟悉Oracle、MySQL、MongoDB数据库。
           <br />
