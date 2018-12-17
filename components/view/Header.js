@@ -14,7 +14,7 @@ const Menu = list => list.map((e,i) => {
                 </ul>
               </li>)
     } else {
-      item = <Link href={ e.href || e.link } as={ e.link }  key={ e.title }><li><a  href={ e.href || e.link }>{ e.title }</a></li></Link>
+      item = <li key={ e.title }><Link href={ e.href || e.link } as={ e.link } passHref><a>{ e.title }</a></Link></li>
     }
     return item
 })
@@ -29,7 +29,7 @@ const Mnav = (list, unfoldNav) => list.map((e,i) => {
               </dl>
             </dt>)
   } else {
-    item = <Link href={ e.href || e.link } as={ e.link }  key={ e.title }><dt className="list_dt"><a href={ e.href || e.link }>{ e.title }</a></dt></Link>;
+    item = <dt className="list_dt" key={ e.title }><Link href={ e.href || e.link } as={ e.link } passHref><a href={ e.href || e.link }>{ e.title }</a></Link></dt>;
   }
   return item
 })
