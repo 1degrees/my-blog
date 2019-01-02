@@ -12,7 +12,13 @@ const bodyParser = require('body-parser');
 module.exports = function (server) {
 
   server.use(cors({
-    origin: ['http://localhost:3000', 'https://reboil-demo.herokuapp.com'],
+    origin: [ 
+              'http://localhost:3000', 
+              'http://www.zhangxiao.club', 
+              'http://zhangxiao.club', 
+              'http://www.aka.today', 
+              'http://aka.today'
+            ],
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
     credentials: true
   }));
