@@ -16,8 +16,8 @@ module.exports = function (server) {
               'http://localhost:3000', 
               'http://www.zhangxiao.club', 
               'http://zhangxiao.club', 
-              'http://www.aka.today', 
-              'http://aka.today'
+              'http://www.aka.today:8080', 
+              'http://aka.today:8080'
             ],
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
     credentials: true
