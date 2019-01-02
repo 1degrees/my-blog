@@ -28,7 +28,8 @@ module.exports = function (server) {
 
   // user routes
   server.get('/menus/list', menus.List);
-  server.get('/articles/findByTag', articles.List);
+  server.get('/time/list', articles.ListSort);
   server.get('/articles/list', articles.List);
   server.post('/articles/save', articles.create);
+  server.get('/articles/findByTag', articles.List);
 };

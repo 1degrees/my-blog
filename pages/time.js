@@ -19,7 +19,7 @@ class Time extends Component {
 
   componentWillMount(){
     console.log('------componentDdMount--Time-----')
-    axios.get(`${BASE_URL.url}/articles/list`)
+    axios.get(`${BASE_URL.url}/time/list`)
       .then(rs =>{
         let timers = rs.data.list;
         this.setState({ timers });

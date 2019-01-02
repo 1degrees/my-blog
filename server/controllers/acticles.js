@@ -39,6 +39,33 @@ exports.List = async(function* (req, res) {
   res.json({ list: articles, count})
 });
 
+exports.ListSort = async(function* (req, res) {
+  console.log(req.body, req.query, req.params)
+  let criteria = {};
+  if(req.body){
+    for(let key in req.query){
+      let val = req.query[key];
+      if(val && val.includes(',')){
+        let vals = val.split(',');
+        criteria[key] = {'$in': vals};
+      } else {
+        criteria[key] = val;
+      }
+    }
+  }
+  const page = req.query.page > 0 ? req.query.page - 1 : 0;
+  const limit = 30;
+  const options = {
+    criteria,
+    limit,
+    page,
+    sort:{'time':-1}
+  };
+  const articles = yield Article.list(options);
+  const count = yield Article.count();
+  res.json({ list: articles, count})
+});
+
 /**
  * Create an article
  * Upload an image

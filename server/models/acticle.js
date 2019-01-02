@@ -81,7 +81,8 @@ ArticleSchema.statics = {
     const criteria = options.criteria || {};
     const page = options.page || 0;
     const limit = options.limit || 30;
-    return this.find(criteria).limit(limit).skip(limit * page).sort({'time':1}).exec();
+    const sort = options.sort || {'time': 1};
+    return this.find(criteria).limit(limit).skip(limit * page).sort(sort).exec();
   }
 };
 
