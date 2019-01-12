@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-09-13 10:23:59
+ * @Last Modified time: 2019-01-12 13:54:09
  * @file: node服务器启动文件（路由配置）
  */
 
@@ -52,7 +52,7 @@ app.prepare().then(() => {
 
 //MongoDB连接函数
 function connect() {
-  var url = "mongodb://localhost:27017/mongodb";
+  var url = "mongodb://zzz:zzz@localhost:27017/mongodb";
   var db = mongoose.connect(url).then(function(rs){
     console.log('连接成功')
   },function(err){
