@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2019-01-12 14:07:08
+ * @Last Modified time: 2019-01-12 15:04:39
  * @file: node服务器启动文件（路由配置）
  */
 
@@ -52,8 +52,10 @@ app.prepare().then(() => {
 
 //MongoDB连接函数
 function connect() {
-  var url = "mongodb://zzz:zzz@localhost:27017/mongodb?authSource=admin";
-  var db = mongoose.connect(url).then(function(rs){
+  var db = mongoose.connect('mongodb://127.0.0.1:27017/mongodb',{
+    user:'zzz',
+    pass:'zzz'
+  }).then(function(rs){
     console.log('连接成功')
   },function(err){
     console.log('连接失败')
