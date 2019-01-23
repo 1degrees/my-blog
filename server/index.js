@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-09-13 15:53:17
+ * @Last Modified time: 2019-01-22 17:59:40
  * @file: node服务器启动文件（路由配置）
  */
 
@@ -13,39 +13,37 @@ const join = require('path').join;
 
 const port = process.env.PORT || 8080;
 
-// Bootstrap models
-const models = join(__dirname, './models');
-fs.readdirSync(models)
-  .filter(file => ~file.search(/^[^\.].*\.js$/))
-  .forEach(file => require(join(models, file)));
-
-
 //初始化node服务器
 const server = express();
-//服务端接口
-require('./router')(server);
 
 //MongoDB连接
-connect ()
-.on('error', console.log)
-.on('disconnected', connect)
-.once('open', listen.bind(this,server));
+connect(server)
 
-//MongoDB连接函数
-function connect() {
-  var url = "mongodb://localhost:27017/mongodb";
-  var db = mongoose.connect(url).then(function(rs){
-    console.log('连接成功')
-  },function(err){
-    console.log('连接失败')
-  }).catch(function(err){ console.log(err) });
-  return mongoose.connection
+function connect(server) {
+  /* mongoose自带的promise过期了,需要v8引擎的promise */
+  // mongoose.Promise = global.Promise;
+  mongoose.connect('mongodb://209.97.175.96:27017/mongodb',{ 
+    useNewUrlParser: true,
+    user:'zx1',
+    pass:'zx1'
+  }).then(async(rs) => { 
+      console.log("数据库连接成功");
+      initModels(server);
+      //服务端接口
+      require('./router')(server);
+      server.listen(port, (err) => {
+        if (err) throw err
+        console.log(`> Ready on http://localhost:${port}`)
+      });
+    }, err => { 
+        console.log('error');
+     }
+  );
 }
 
-//服务端口监听函数
-function listen(server) {
-  server.listen(port, (err) => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${port}`)
-  });
+function initModels(server) { //初始化数据模型-models
+  const models = join(__dirname, './models');
+  fs.readdirSync(models)
+    .filter(file => ~file.search(/^[^\.].*\.js$/))
+    .forEach(file => require(join(models, file)));
 }

@@ -76,8 +76,7 @@ ArticleSchema.statics = {
    * @param {Object} options
    * @api private
    */
-  list: function (options) {
-    console.log(options.criteria)
+  list: async function (options) {
     const criteria = options.criteria || {};
     const page = options.page || 0;
     const limit = options.limit || 30;

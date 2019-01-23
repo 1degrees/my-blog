@@ -3,10 +3,9 @@
 /**
  * Module dependencies.
  */
-
 const mongoose = require('mongoose');
-const { wrap: async } = require('co');
 const only = require('only');
+const { wrap: async } = require('co');
 const { respond, respondOrRedirect } = require('../utils');
 const Article = mongoose.model('Article');
 
@@ -14,7 +13,6 @@ const Article = mongoose.model('Article');
  * List
  */
 exports.List = async(function* (req, res) {
-  console.log(req.body, req.query, req.params)
   let criteria = {};
   if(req.body){
     for(let key in req.query){
@@ -30,17 +28,17 @@ exports.List = async(function* (req, res) {
   const page = req.query.page > 0 ? req.query.page - 1 : 0;
   const limit = 30;
   const options = {
-    criteria,
+    criteria: {},
     limit: limit,
     page: page
   };
   const articles = yield Article.list(options);
   const count = yield Article.count();
+  console.log(articles,count)
   res.json({ list: articles, count})
 });
 
 exports.ListSort = async(function* (req, res) {
-  console.log(req.body, req.query, req.params)
   let criteria = {};
   if(req.body){
     for(let key in req.query){

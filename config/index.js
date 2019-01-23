@@ -1,6 +1,6 @@
-const DEV_URL = {url:"http://localhost:8080"}
-const PROD_URL = {url:"http://www.zhangxiao.club"}
-const TEST_URL = {url:"http://localhost:8080"}
+const DEV_URL = {url:"http://localhost:8080"};
+const TEST_URL = {url:"http://localhost:8080"};
+const PROD_URL = {url:"http://www.zhangxiao.club"};
 let BASE_URL;
 switch(process.env.NODE_ENV){
     case 'development':

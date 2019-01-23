@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-10-10 15:39:13
+ * @Last Modified time: 2019-01-23 13:45:26
  * @file: next配置文件（包括webpack，静态路由等等）
  */
 console.log('-----运行环境-----', process.env.NODE_ENV);
@@ -16,9 +16,7 @@ if (typeof require !== 'undefined') {
 }
 
 module.exports = withLess({
-  lessLoaderOptions: {
-    javascriptEnabled: true,
-  },
+  lessLoaderOptions: { javascriptEnabled: true },
   webpack: function (config, { defaultLoaders, isServer }) {
     config.module.rules.push({
       test: /\.(png|jpg|gif|ico|jpeg|bmp)$/,
