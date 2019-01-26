@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import objEvent from '../../comUtils/observer'
+import objEvent from '@utils/observer'
 
 class Loading extends Component {
     constructor(props) {

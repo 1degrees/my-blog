@@ -1,50 +1,41 @@
-import React, { Component }from 'react'
-import Head from 'next/head'
-import dynamic from 'next/dynamic'
-import Router, { withRouter } from 'next/router'
-import Layout from '@components/view/Layout'
-import axios from 'axios'
-import qs from 'qs'
-import BASE_URL from '../config'
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import React, { Component } from 'react';
+import Router, { withRouter } from 'next/router';
+import LoaderLib from '@utils/loaderLib';
+import { getArtList } from '../service';
 
-const Banner = dynamic(import('../components/banner'));
-const Blogsbox = dynamic(import('../components/blogsbox'));
-const Sidebar = dynamic(import('../components/sidebar'));
+const Layout = dynamic(import('@components/view/Layout'));
+const Banner = dynamic(import('@components/banner'));
+const Blogsbox = dynamic(import('@components/blogsbox'));
+const Sidebar = dynamic(import('@components/sidebar'));
 
 class Index extends Component {
-  static getInitialProps ({ req }) {
-    console.log('------getInitialProps--Index-----')
-    return {isServer: !!req}
+  static async getInitialProps ({ req }) {
+    let arts = [];
+    await getArtList({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" })
+          .then(rs => {
+            arts = rs.data.list
+          }).catch(err => {
+            console.warn(err);
+          });
+    return { arts }
   }
 
   constructor (props) {
-    console.log('------constructor--Index-----')
     super(props);
-    this.state = {  articles : [] };
-  }
-
-  componentWillMount(){
-    let query = qs.stringify({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" });
-    axios.get(`${BASE_URL.url}/articles/list?${query}`)
-      .then(rs =>{
-        this.setState({ articles: rs.data.list })
-      })
   }
 
   componentDidMount(){
-    console.log('------componentDidMount--Index-----');
     //等待js库加载完成
-    let timer = setInterval(e => {
-      if(typeof scrollReveal != "undefined" &&typeof $ != "undefined" &&
-        $('#banner > li').length == 3 && $('#banner').easyFader) {
-        window.scrollReveal = new scrollReveal({ reset: true });
-        $('#banner').easyFader();
-        clearInterval(timer);
-      }
-    }, 200);
+    LoaderLib($, scrollReveal).then(rs => {
+      window.scrollReveal = new scrollReveal({ reset: true });
+      $('#banner').easyFader();
+    })
   }
 
   render() {
+    let { arts } = this.props;
     return (
         <Layout>
           <Head>
@@ -52,9 +43,9 @@ class Index extends Component {
             <script defer src="/static/js/scrollReveal.js"></script>
           </Head>
           <article> 
-            <Banner articles={ this.state.articles }></Banner>
-            <Blogsbox articles={ this.state.articles }></Blogsbox>
-            <Sidebar articles={ this.state.articles }></Sidebar>
+            <Banner articles={ arts }></Banner>
+            <Blogsbox articles={ arts }></Blogsbox>
+            <Sidebar articles={ arts }></Sidebar>
           </article>
         </Layout>
     )

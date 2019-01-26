@@ -14,7 +14,7 @@ import NextSeo from 'next-seo';
 import SEO from '../seo/base-seo.js';
 import Loading from '../components/loading'
 
-require('../comUtils/intercept');
+require('@utils/intercept');
 class MyApp extends App {
     render () {
         const {Component, pageProps, mobxStore} = this.props;
