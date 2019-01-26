@@ -6,17 +6,11 @@ import ASidebar from '../components/aSidebar'
 
 class About extends Component {
   static getInitialProps ({ req }) {
-    console.log('------getInitialProps--About-----')
     return {isServer: !!req}
   }
   
   constructor (props) {
-    console.log('------constructor--About-----')
     super(props);
-  }
-
-  componentDidMount(){
-    console.log('------componentDidMount--About-----')
   }
 
   render() {

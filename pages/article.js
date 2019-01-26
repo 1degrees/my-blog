@@ -8,17 +8,11 @@ const Sidebar = dynamic(import('../components/aSidebar'));
 
 class Articles extends Component {
   static getInitialProps ({ req }) {
-    console.log('------getInitialProps--Contents-----')
     return {isServer: !!req}
   }
 
   constructor (props) {
-    console.log('------constructor--Contents-----')
     super(props)
-  }
-
-  componentDidMount(){
-    console.log('------componentDidMount--Contents-----')
   }
 
   render() {

@@ -2,32 +2,25 @@ import Head from 'next/head'
 import React, { Component }from 'react'
 import Router, { withRouter } from 'next/router'
 import Layout from '@components/view/Layout'
-import axios from 'axios'
-import BASE_URL from '../config'
+import { getTimeList } from '../service';
 
 class Time extends Component {
-  static getInitialProps ({ req }) {
-    console.log('------getInitialProps--Time-----')
-    return {isServer: !!req}
+  static async getInitialProps ({ req }) {
+    let timers = [];
+    await getTimeList().then(rs => {
+      timers = rs.data.list;
+    }).catch(err => {
+      console.warn(err);
+    })
+    return { timers }
   }
 
   constructor (props) {
-    console.log('------constructor--Time-----')
-    super(props);
-    this.state = { timers : [] };
-  }
-
-  componentWillMount(){
-    console.log('------componentDdMount--Time-----')
-    axios.get(`${BASE_URL.url}/time/list`)
-      .then(rs =>{
-        let timers = rs.data.list;
-        this.setState({ timers });
-      })
+    super(props)
   }
 
   render() {
-    let { timers } = this.state;
+    let { timers } = this.props;
     return (
         <Layout>
           <div className="pagebg timer"></div>

@@ -12,19 +12,16 @@ let articles = [];
 
 class Articles extends Component {
   static getInitialProps ({ req }) {
-    console.log('------getInitialProps--Contents-----')
     return {isServer: !!req}
   }
 
   constructor (props) {
-    console.log('------constructor--Contents-----')
     super(props);
     let blogs = [];
     this.state = { articles, blogs }
   }
 
   updateBlogs = nextProps => {
-    console.log("----------updateBlogs-----------");
     let tabs = {"lifes":"程序人生","travel": "旅游日记","ngc":"语录心得"},
         { query } = nextProps.router,
         { id } = query;
@@ -43,7 +40,6 @@ class Articles extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('------componentWillReceiveProps--Contents-----')
     this.updateBlogs(nextProps);
   }
 
