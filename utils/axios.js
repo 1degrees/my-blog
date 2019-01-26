@@ -1,12 +1,12 @@
+import qs from 'qs';
 import Axios from 'axios';
+import { BLOG_API } from '@config';
 import { isPlainObject } from 'lodash/lang';
-import qs from 'qs'
-import { BASE_URL } from '../config'
 // import { camelizeKeys, snakeizeKeys } from './transforms';
 
 const axios = Axios.create({
-  baseURL: BASE_URL,
-  timeout: 3000,
+  baseURL: BLOG_API,
+  timeout: 5000, //接口超时时长5秒
   withCredentials: true,
   responseType: 'json',
   transformRequest(data) {

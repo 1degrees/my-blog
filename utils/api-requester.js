@@ -1,5 +1,5 @@
-import axios from './axios';
 import qs from 'qs';
+import axios from './axios';
 
 /**
  * Send GET request to project API
