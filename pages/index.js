@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-import React, { Component }from 'react'
-import Head from 'next/head'
-import dynamic from 'next/dynamic'
-import Router, { withRouter } from 'next/router'
-import LoaderLib from '@components/LoaderLib'
-import Layout from '@components/view/Layout'
-import { getHomeArticles } from '../service'
-=======
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import React, { Component } from 'react';
 import Router, { withRouter } from 'next/router';
 import LoaderLib from '@utils/loaderLib';
 import { getArtList } from '../service';
->>>>>>> dev
 
 const Layout = dynamic(import('@components/view/Layout'));
 const Banner = dynamic(import('@components/banner'));
@@ -22,15 +12,6 @@ const Sidebar = dynamic(import('@components/sidebar'));
 
 class Index extends Component {
   static async getInitialProps ({ req }) {
-<<<<<<< HEAD
-    let articles = [];
-    await getHomeArticles({
-      "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame"
-    }).then(rs =>{
-      articles =  rs.data.list
-    })
-    return {isServer: !!req, articles}
-=======
     let arts = [];
     await getArtList({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" })
           .then(rs => {
@@ -39,31 +20,17 @@ class Index extends Component {
             console.warn(err);
           });
     return { arts }
->>>>>>> dev
   }
 
   constructor (props) {
     super(props);
-<<<<<<< HEAD
-    const { articles } = props;
-    this.state = {  articles };
-  }
-
-  componentWillMount(){
-=======
->>>>>>> dev
   }
 
   componentDidMount(){
     //等待js库加载完成
-<<<<<<< HEAD
-    LoaderLib($, scrollReveal).then(rs=>{
-      window.scrollReveal = new scrollReveal({ reset: true });
-=======
     let { $, scrollReveal } = window;
     LoaderLib($, scrollReveal).then(rs => {
       new scrollReveal({ reset: true });
->>>>>>> dev
       $('#banner').easyFader();
     })
   }

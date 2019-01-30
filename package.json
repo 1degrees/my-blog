@@ -43,17 +43,13 @@
     "sass-resources-loader": "^2.0.0",
     "babel-plugin-import": "^1.9.1",
     "styled-jsx-css-loader": "^0.3.0",
-    "emit-file-loader": "0.0.2",
     "file-loader": "^1.1.11",
     "url-loader": "^0.6.2",
     "cross-env": "^5.1.6",
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
     "open-browser-webpack-plugin": "0.0.5",
-<<<<<<< HEAD
-=======
     "emit-file-loader": "0.0.2",
->>>>>>> dev
     "express": "^4.14.0",
     "express-static": "^1.2.6",
     "pm2": "^3.2.3"

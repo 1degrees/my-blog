@@ -1,15 +1,3 @@
-<<<<<<< HEAD:comUtils/api-requester.js
-/*
- * @Author: xiao·Zhang 
- * @Date: 2018-08-09 11:03:25 
- * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2019-01-23 14:02:04
- * @file: ajax 二次封装
- */
-
-import { axios_info } from './axios';
-=======
->>>>>>> dev:utils/api-requester.js
 import qs from 'qs';
 import axios from './axios';
 
