@@ -28,8 +28,10 @@ class Index extends Component {
 
   componentDidMount(){
     //等待js库加载完成
+    let $ = window.$, 
+    scrollReveal = window.scrollReveal;
     LoaderLib($, scrollReveal).then(rs => {
-      window.scrollReveal = new scrollReveal({ reset: true });
+      new scrollReveal({ reset: true });
       $('#banner').easyFader();
     })
   }

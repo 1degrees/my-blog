@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2019-01-23 13:45:26
+ * @Last Modified time: 2019-01-30 14:43:17
  * @file: next配置文件（包括webpack，静态路由等等）
  */
 const path = require('path');
@@ -33,7 +33,7 @@ module.exports = withLess({
     
     if(!isBuild && !isServer) {
       const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-      config.plugins.push(new OpenBrowserPlugin({url: 'http://localhost:8080/'}))
+      config.plugins.push(new OpenBrowserPlugin({url: 'http://localhost:3000/'}))
     }
 
     //设置别名

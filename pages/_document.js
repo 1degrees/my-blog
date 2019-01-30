@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-29 14:20:01 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-12-27 19:49:11
+ * @Last Modified time: 2019-01-30 14:57:34
  * @file: 全局引入样式，外部组件库页面 (经测试不存react在生命周期)
  */
 import Document, { Head, Main, NextScript } from 'next/document'
@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon"/>
+          <link rel="stylesheet" href="/static/css/reset.css"/>
           <link rel="stylesheet" href="/static/css/base.css"/>
           <link rel="stylesheet" href="/static/css/index.css"/>
           <link rel="stylesheet" href="/static/css/m.css"/>

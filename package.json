@@ -5,9 +5,9 @@
   "license": "ISC",
   "scripts": {
     "server": "node server/index.js",
-    "dev": "cross-env NODE_ENV=development NODE_ENV_API=development next -p 8080",
-    "test": "cross-env NODE_ENV=development NODE_ENV_API=test next -p 8080",
-    "prod": "cross-env NODE_ENV=development NODE_ENV_API=production next -p 8080",
+    "dev": "cross-env NODE_ENV=development NODE_ENV_API=development next",
+    "test": "cross-env NODE_ENV=development NODE_ENV_API=test next",
+    "prod": "cross-env NODE_ENV=development NODE_ENV_API=production next",
     "build:dev": "cross-env NODE_ENV=production NODE_ENV_API=development next build",
     "build:test": "cross-env NODE_ENV=production NODE_ENV_API=test next build",
     "build:prod": "cross-env NODE_ENV=production NODE_ENV_API=production next build",
