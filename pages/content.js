@@ -24,8 +24,7 @@ class Contents extends Component {
   }
 
   updateBlogs = props => {
-    let { id } = props.router.query,
-        { arts }= props,
+    let { router: { query : { id } }, arts } = props,
         blogs = [];
     blogs = arts.filter((e,i) => e.tag.toLocaleLowerCase().includes(id));
     return blogs

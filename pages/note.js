@@ -104,6 +104,7 @@ class Note extends Component {
   }
 
   componentDidMount(){
+    let { wangEditor } = window;
     LoaderLib(wangEditor).then(rs => {
       this.editor = new wangEditor('#editor');
       this.editor.create();
