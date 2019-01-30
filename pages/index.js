@@ -2,46 +2,40 @@ import React, { Component }from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import Router, { withRouter } from 'next/router'
+import LoaderLib from '@components/LoaderLib'
 import Layout from '@components/view/Layout'
-import axios from 'axios'
-import qs from 'qs'
-import BASE_URL from '../config'
+import { getHomeArticles } from '../service'
 
 const Banner = dynamic(import('../components/banner'));
 const Blogsbox = dynamic(import('../components/blogsbox'));
 const Sidebar = dynamic(import('../components/sidebar'));
 
 class Index extends Component {
-  static getInitialProps ({ req }) {
-    console.log('------getInitialProps--Index-----')
-    return {isServer: !!req}
+  static async getInitialProps ({ req }) {
+    let articles = [];
+    await getHomeArticles({
+      "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame"
+    }).then(rs =>{
+      articles =  rs.data.list
+    })
+    return {isServer: !!req, articles}
   }
 
   constructor (props) {
-    console.log('------constructor--Index-----')
     super(props);
-    this.state = {  articles : [] };
+    const { articles } = props;
+    this.state = {  articles };
   }
 
   componentWillMount(){
-    let query = qs.stringify({ "tag": "学无止境-html,学无止境-CSS3,学无止境-js,学无止境-frame" });
-    axios.get(`${BASE_URL.url}/articles/list?${query}`)
-      .then(rs =>{
-        this.setState({ articles: rs.data.list })
-      })
   }
 
   componentDidMount(){
-    console.log('------componentDidMount--Index-----');
     //等待js库加载完成
-    let timer = setInterval(e => {
-      if(typeof scrollReveal != "undefined" &&typeof $ != "undefined" &&
-        $('#banner > li').length == 3 && $('#banner').easyFader) {
-        window.scrollReveal = new scrollReveal({ reset: true });
-        $('#banner').easyFader();
-        clearInterval(timer);
-      }
-    }, 200);
+    LoaderLib($, scrollReveal).then(rs=>{
+      window.scrollReveal = new scrollReveal({ reset: true });
+      $('#banner').easyFader();
+    })
   }
 
   render() {

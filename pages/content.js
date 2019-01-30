@@ -1,25 +1,31 @@
-import React, { Component }from 'react'
-import Layout from '@components/view/Layout'
 import dynamic from 'next/dynamic'
+import React, { Component }from 'react'
 import Router, { withRouter } from 'next/router'
-import axios from 'axios'
-import qs from 'qs'
-import BASE_URL from '../config'
-
+import { getHomeArticles } from '../service'
+import Layout from '@components/view/Layout'
 const Blogsbox = dynamic(import('../components/blogsbox'));
 const Sidebar = dynamic(import('../components/sidebar'));
 let articles = [];
 
 class Contents extends Component {
-  static getInitialProps ({ req }) {
-    console.log('------getInitialProps--Contents-----')
-    return {isServer: !!req}
+  static getInitialProps ({ req, query }) {
+    let tags = {
+      htm : '学无止境-html',
+      css : '学无止境-CSS3',
+      js : '学无止境-js',
+      frame : '学无止境-frame'
+    }
+    let blogs = [];
+    await getHomeArticles({ "tag": tags[query.id] }).then(rs =>{
+      blogs =  rs.data.list
+    })
+    return { blogs }
   }
 
   constructor (props) {
     console.log('------constructor--Contents-----')
     super(props);
-    let blogs = [];
+    let { blogs } = props;
     this.state = { articles, blogs }
   }
 

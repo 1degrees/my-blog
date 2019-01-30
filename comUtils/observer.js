@@ -1,3 +1,11 @@
+/*
+ * @Author: xiao·Zhang 
+ * @Date:   2018-08-09 11:03:25 
+ * @Last    Modified by: xiao·Zhang
+ * @Last    Modified time: 2018-11-29 10:35:49
+ * @file:   注册事件触发器（观察者模式）
+ */
+
 class Handle {
     constructor(name, ...func){
         this.handles = [...func];
@@ -35,12 +43,12 @@ class Handle {
     }
 };
 
-class ObjEvent {
+class MessageMechanism {
     constructor(){
         this.handles = {};
     }
 
-    add(name, func){
+    on(name, func){
         let { handles } = this;
         if(handles[name]) {
             handles[name].addEvent(func);
@@ -49,7 +57,7 @@ class ObjEvent {
         }
     }
 
-    remove(name, func){
+    off(name, func){
         let { handles } = this;
         if(handles[name]) {
             handles[name].removeEvent(func);
@@ -64,6 +72,6 @@ class ObjEvent {
     }
 }
 
-const  objEvent = new ObjEvent();
+const  messageEvent = new MessageMechanism();
 
-export default objEvent
+export default messageEvent

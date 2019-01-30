@@ -1,4 +1,12 @@
-import axios from './axios';
+/*
+ * @Author: xiao·Zhang 
+ * @Date: 2018-08-09 11:03:25 
+ * @Last Modified by: xiao·Zhang
+ * @Last Modified time: 2019-01-23 14:02:04
+ * @file: ajax 二次封装
+ */
+
+import { axios_info } from './axios';
 import qs from 'qs';
 
 /**
@@ -70,8 +78,8 @@ export function _destroy(ax) {
   };
 }
 
-export const get = _get(axios);
-export const post = _post(axios);
-export const put = _put(axios);
-export const patch = _patch(axios);
-export const destroy = _destroy(axios);
+export const get = _get(axios_info);
+export const post = _post(axios_info);
+export const put = _put(axios_info);
+export const patch = _patch(axios_info);
+export const destroy = _destroy(axios_info);
