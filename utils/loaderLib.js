@@ -12,18 +12,10 @@
  * @returns { Promise } promise 判断资源是否加载完成的流程函数
  */
 export default function LoaderLib(...lib) {
-<<<<<<< HEAD
-    let timer, allLoad = true;
-    return new Promise((resolve, reject) => {
-        let allLoad = true, count = 0,
-            timer = setInterval(() =>{
-                count ++; console.log('资源加载耗时：', count * 200, 'MS')
-=======
     return new Promise((resolve, reject) => {
         let allLoad = true, count = 0,
             timer = setInterval(() =>{
                 count ++; console.log('资源加载耗时：', count * 100, 'MS')
->>>>>>> dev
                 lib && lib.length && lib.forEach(e => { allLoad = (allLoad && !!e) });
                 if(allLoad) {
                     clearInterval(timer);
@@ -33,10 +25,6 @@ export default function LoaderLib(...lib) {
                     clearInterval(timer);
                     reject('资源加载超时');
                 }
-<<<<<<< HEAD
-            }, 200)
-=======
             }, 100)
->>>>>>> dev
     })
 }

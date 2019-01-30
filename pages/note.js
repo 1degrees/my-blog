@@ -1,16 +1,17 @@
-import Head from 'next/head'
-import React, { Component }from 'react'
-import Router, { withRouter } from 'next/router'
-import { Modal, Form, Button, Select, Input } from 'antd'
-import Layout from '@components/view/Layout'
-import _, { get, set } from 'lodash'
-import axios from 'axios'
-import BASE_URL from '../config'
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import _, { get, set } from 'lodash';
+import React, { Component }from 'react';
+import Router, { withRouter } from 'next/router';
+import { Modal, Form, Button, Select, Input } from 'antd';
+import LoaderLib from '@utils/loaderLib';
+import { saveArticle } from '../service';
+
+const Layout = dynamic(import('@components/view/Layout'));
 
 const { TextArea } = Input;
 const { Option } = Select;
 const FormItem = Form.Item;
-
 const CustomizedForm = Form.create({
   onFieldsChange(props, changedFields) {
     props.onChange(changedFields);
@@ -35,7 +36,6 @@ const CustomizedForm = Form.create({
       }),
     };
   },
-  onValuesChange(_, values) {},
 })((props) => {
   const { getFieldDecorator } = props.form;
   props.setValidateFields(props.form);
@@ -83,12 +83,10 @@ const CustomizedForm = Form.create({
 
 class Note extends Component {
   static getInitialProps ({ req }) {
-    console.log('------getInitialProps--Note-----')
     return {isServer: !!req}
   }
 
   constructor (props) {
-    console.log('------constructor--Note-----')
     super(props);
     this.titleInput = React.createRef();
     this.descInput = React.createRef();
@@ -106,15 +104,11 @@ class Note extends Component {
   }
 
   componentDidMount(){
-    console.log('------componentDdMount--Note-----')
-    let timer = setInterval(e => {
-      console.log('------timer------');
-      if(typeof wangEditor != "undefined" && !this.editor) {
-        this.editor = new wangEditor('#editor');
-        this.editor.create();
-        clearInterval(timer);
-      }
-    }, 200)
+    let { wangEditor } = window;
+    LoaderLib(wangEditor).then(rs => {
+      this.editor = new wangEditor('#editor');
+      this.editor.create();
+    })
   }
 
   setValidateFields = (val) => this.form = val
@@ -128,7 +122,7 @@ class Note extends Component {
   }
 
   submitContent = (article) =>{
-    axios.post(`${BASE_URL.url}/articles/save`, article).then( rs => {
+    saveArticle(article).then( rs => {
       this.setState({ link : article.link, success : true });
     })
     this.setState({ 

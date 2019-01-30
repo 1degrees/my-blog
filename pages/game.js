@@ -1,21 +1,19 @@
-import Head from 'next/head'
-import React, { Component }from 'react'
-import Router, { withRouter } from 'next/router'
-import Layout from '@components/view/Layout'
-import game from '../game/main'
+import Head from 'next/head';
+import React, { Component }from 'react';
+import Router, { withRouter } from 'next/router';
+import Layout from '@components/view/Layout';
+import game from '../game/main';
+
 class Game extends Component {
   static getInitialProps ({ req }) {
-    console.log('------getInitialProps--Game-----')
     return {isServer: !!req}
   }
 
   constructor (props) {
-    console.log('------constructor--Game-----')
     super(props)
   }
 
   componentDidMount(){
-    console.log('------componentDdMount--Game-----')
     game();
   }
 

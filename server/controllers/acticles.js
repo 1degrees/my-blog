@@ -28,13 +28,12 @@ exports.List = async(function* (req, res) {
   const page = req.query.page > 0 ? req.query.page - 1 : 0;
   const limit = 30;
   const options = {
-    criteria: {},
+    criteria: criteria,
     limit: limit,
     page: page
   };
   const articles = yield Article.list(options);
   const count = yield Article.count();
-  console.log(articles,count)
   res.json({ list: articles, count})
 });
 

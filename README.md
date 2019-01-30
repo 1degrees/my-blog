@@ -49,14 +49,16 @@ next-react-ssr
 ├─.next                     ----项目编译目录
 ├─asserts                   ----项目资源文件目录
 ├─components                ----项目公用组件目录
-├─comUtils                  ----工具类JavaScript
+├─utils                     ----工具类JavaScript
 ├─config                    ----项目请求路径配置
 ├─env                       ----环境变量配置
 ├─pages                     ----路由页面
 ├─seo                       ----SEO优化配置
-├─server.js                 ----node服务器启动文件
+├─server                    ----node后台接口服务器
+├─server.js                 ----node服务器启动文件（接口&next同启动）
 ├─next.config.js            ----next配置文件
-├─static                    ----CDN静态资源目录
+├─router.js                 ----next服务端路由文件
+├─MongoDB                   ----项目表结构
 └─stores                    ----mobx状态管理库
 ```
 # 项目数据库

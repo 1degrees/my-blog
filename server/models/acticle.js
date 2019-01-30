@@ -78,6 +78,7 @@ ArticleSchema.statics = {
    */
   list: async function (options) {
     const criteria = options.criteria || {};
+    console.log(criteria, '-------')
     const page = options.page || 0;
     const limit = options.limit || 30;
     const sort = options.sort || {'time': 1};

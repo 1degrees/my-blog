@@ -5,12 +5,12 @@
   "license": "ISC",
   "scripts": {
     "server": "node server/index.js",
-    "dev": "cross-env NODE_ENV=development next",
-    "test": "cross-env NODE_ENV=testing next",
-    "prod": "cross-env NODE_ENV=production next",
-    "build:dev": "cross-env NODE_ENV=development next build",
-    "build:test": "cross-env NODE_ENV=testing next build",
-    "build:prod": "cross-env NODE_ENV=production next build",
+    "dev": "cross-env NODE_ENV=development NODE_ENV_API=development next",
+    "test": "cross-env NODE_ENV=development NODE_ENV_API=test next",
+    "prod": "cross-env NODE_ENV=development NODE_ENV_API=production next",
+    "build:dev": "cross-env NODE_ENV=production NODE_ENV_API=development next build",
+    "build:test": "cross-env NODE_ENV=production NODE_ENV_API=test next build",
+    "build:prod": "cross-env NODE_ENV=production NODE_ENV_API=production next build",
     "start": "cross-env PORT=8080 NODE_ENV=production node server.js",
     "pm2-start": "pm2 start server.js --watch --name my-blog",
     "pm2-delete": "pm2 delete my-blog",
@@ -50,6 +50,10 @@
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
     "open-browser-webpack-plugin": "0.0.5",
+<<<<<<< HEAD
+=======
+    "emit-file-loader": "0.0.2",
+>>>>>>> dev
     "express": "^4.14.0",
     "express-static": "^1.2.6",
     "pm2": "^3.2.3"

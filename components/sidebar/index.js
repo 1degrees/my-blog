@@ -108,10 +108,10 @@ export default class sidebar extends Component {
         <div className="links">
           <h2 className="hometitle">友情链接</h2>
           <ul>
-            <li><a href="https://www.zhihu.com/people/he-shi-qiu-feng-bei-hua-shan-22/posts" target="_blank">知乎</a></li>
-            <li><a href="https://github.com/1degrees" target="_blank">GitHub</a></li>
-            <li><a href="http://www.wanshifu.com/" target="_blank">万师傅官网</a></li>
+            <li><a href="http://www.aka.today/" target="_blank">阿卡漫画俱乐部</a></li>
             <li><a href="http://www.yangqq.com/" target="_blank">免费博客静态模板</a></li>
+            <li><a href="https://github.com/1degrees" target="_blank">GitHub</a></li>
+            <li><a href="https://www.zhihu.com/people/he-shi-qiu-feng-bei-hua-shan-22/posts" target="_blank">知乎</a></li>
           </ul>
         </div>
         <div className="guanzhu" id="follow-us">

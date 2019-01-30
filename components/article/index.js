@@ -1,30 +1,25 @@
 import React, { Component }from 'react'
-import axios from 'axios'
-import qs from 'qs'
-import { $mobx } from 'mobx';
-import BASE_URL from '../../config';
-
-let article = '';
+import { getArtListByTag } from '../../service';
 export default class Article extends Component {
     constructor(props){
         super(props);
-        this.state = { article };
+        this.state = { article: {} };
     }
 
     componentDidMount(){
-        let query = qs.stringify({ "title": this.props.link });
-        axios.get(`${BASE_URL.url}/articles/list?${query}`)
-            .then(rs =>{
-            article = rs.data.list[0];
-            $('.infosbox > .newsview').html(article.content)
-            })
+        getArtListByTag({ title : this.props.title }).then(rs => {
+            let article = rs.data.list[0];
+            this.setState({ article })
+        });
     }
   
     render(){
-      return (
-        <div className="infosbox">
-            <div className="newsview">
+       let { article } = this.state; 
+        return (
+            <div className="infosbox">
+                <div className="newsview" dangerouslySetInnerHTML={{__html: article.content}}>
+                </div>
             </div>
-        </div>)
+        )
     }
 } 
