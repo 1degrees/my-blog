@@ -190,8 +190,8 @@ class Note extends Component {
     return (
         <Layout>
           <Head>
-            <script defer src="//unpkg.com/wangeditor/release/wangEditor.min.js"/>
             <link rel="stylesheet" href="//unpkg.com/wangeditor/release/wangEditor.min.css"/>
+            <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"/>
           </Head>
           <div className="pagebg sh"></div>
           <div className="container">
