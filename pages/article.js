@@ -2,13 +2,18 @@ import React, { Component }from 'react'
 import Layout from '@components/view/Layout'
 import dynamic from 'next/dynamic'
 import Router, { withRouter } from 'next/router'
+import { getArtListByTag } from '../service';
 
-const Article = dynamic(import('../components/article'));
+const ArticleDetail = dynamic(import('../components/article'));
 const Sidebar = dynamic(import('../components/aSidebar'));
 
-class Articles extends Component {
-  static getInitialProps ({ req }) {
-    return {isServer: !!req}
+class Article extends Component {
+  static async getInitialProps ({ req, query }) {
+    let article = {};
+    await getArtListByTag({ aid : query.id }).then(rs => {
+      article = rs.data.list[0];
+    });
+    return { article }
   }
 
   constructor (props) {
@@ -16,13 +21,13 @@ class Articles extends Component {
   }
 
   render() {
-    let { router: { query : { title }} } = this.props;
+    let { article } = this.props;
     return (
         <Layout>
           <div className="pagebg ab"></div>
           <div className="container">
             <h1 className="t_nav"><span>像“草根”一样，紧贴着地面，低调的存在，冬去春来，枯荣无恙。</span><a href="/" className="n1">网站首页</a><a className="n2">文章详情</a></h1>
-            <Article title={ title }></Article>
+            <ArticleDetail data={ article }></ArticleDetail>
             <Sidebar></Sidebar>
           </div>
           <a href="#" className="cd-top">Top</a>
@@ -31,4 +36,4 @@ class Articles extends Component {
   }
 }
 
-export default withRouter(Articles)
+export default withRouter(Article)

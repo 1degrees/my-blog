@@ -68,7 +68,7 @@ exports.ListSort = async(function* (req, res) {
  * Upload an image
  */
 exports.create = async(function* (req, res) {
-  const article = new Article(only(req.body, 'title link tag author description content images'));
+  const article = new Article(only(req.body, 'aid title link tag author description content images'));
   try {
     yield article.save();
     res.json({ status: '保存成功' })

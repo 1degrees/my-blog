@@ -30,6 +30,7 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "styled-jsx": "^3.0.2",
+    "uuid": "^3.3.2",
     "wangeditor": "^3.1.1"
   },
   "devDependencies": {
@@ -45,7 +46,6 @@
     "cross-env": "^5.1.6",
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
-    "open-browser-webpack-plugin": "0.0.5",
     "emit-file-loader": "0.0.2",
     "express": "^4.14.0",
     "express-session": "^1.15.0",
@@ -54,6 +54,7 @@
     "method-override": "^2.3.5",
     "mongoose": "^5.4.4",
     "only": "0.0.2",
+    "open-browser-webpack-plugin": "0.0.5",
     "styled-jsx-css-loader": "^0.3.0",
     "url-loader": "^0.6.2"
   }
