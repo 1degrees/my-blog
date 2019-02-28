@@ -2,7 +2,7 @@
  * @Author: xiao·Zhang 
  * @Date: 2018-08-09 11:03:25 
  * @Last Modified by: xiao·Zhang
- * @Last Modified time: 2018-11-29 10:04:31
+ * @Last Modified time: 2019-02-28 16:49:10
  * @file: 判断第三方库是否已在页面加载流程函数
  */
  
@@ -21,7 +21,7 @@ export default function LoaderLib(...lib) {
                     clearInterval(timer);
                     resolve('资源加载成功');
                 }
-                if(count == 50 && !allLoad) {
+                if(count == 200 && !allLoad) {
                     clearInterval(timer);
                     reject('资源加载超时');
                 }
