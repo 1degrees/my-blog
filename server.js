@@ -13,7 +13,7 @@ const fs = require('fs');
 const join = require('path').join;
 
 const env = process.env.NODE_ENV || 'production';
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 /* 初始化next服务 */
 const app = next({  dev: (env === 'development') });
