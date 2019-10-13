@@ -22,7 +22,7 @@ connect(server)
 function connect(server) {
   /* mongoose自带的promise过期了,需要v8引擎的promise */
   // mongoose.Promise = global.Promise;
-  mongoose.connect('mongodb://209.97.175.96:27017/mongodb',{ 
+  mongoose.connect('mongodb://127.0.0.1:27017/mongodb',{ 
     useNewUrlParser: true,
     user:'zx1',
     pass:'zx1'
