@@ -22,10 +22,9 @@ connect(server)
 function connect(server) {
   /* mongoose自带的promise过期了,需要v8引擎的promise */
   // mongoose.Promise = global.Promise;
-  mongoose.connect('mongodb://127.0.0.1:27017/mongodb',{ 
-    useNewUrlParser: true,
-    user:'zx1',
-    pass:'zx1'
+  mongoose.connect('mongodb://122.51.49.126:27017/mongodb',{ 
+    user:'zx',
+    pass:'zx'
   }).then(async(rs) => { 
       console.log("数据库连接成功");
       initModels(server);
