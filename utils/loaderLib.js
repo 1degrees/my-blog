@@ -15,7 +15,7 @@ export default function LoaderLib(...lib) {
     return new Promise((resolve, reject) => {
         let allLoad = true, count = 0,
             timer = setInterval(() =>{
-                count ++; console.log('资源加载耗时：', count * 100, 'MS')
+                count ++; console.log('资源加载耗时：', count * 1000, 'MS')
                 lib && lib.length && lib.forEach(e => { allLoad = (allLoad && !!e) });
                 if(allLoad) {
                     clearInterval(timer);
@@ -25,6 +25,6 @@ export default function LoaderLib(...lib) {
                     clearInterval(timer);
                     reject('资源加载超时');
                 }
-            }, 100)
+            }, 1000)
     })
 }
