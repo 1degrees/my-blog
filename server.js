@@ -13,7 +13,7 @@ const fs = require('fs');
 const join = require('path').join;
 
 const env = process.env.NODE_ENV || 'production';
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 /* 初始化next服务 */
 const app = next({  dev: (env === 'development') });
@@ -49,10 +49,9 @@ app.prepare().then(() => {
 function connect() {
   /* mongoose自带的promise过期了,需要v8引擎的promise */
   // mongoose.Promise = global.Promise;
-  return mongoose.connect('mongodb://209.97.175.96:27017/mongodb',{ 
-    useNewUrlParser: true,
-    user:'zx1',
-    pass:'zx1'
+  return mongoose.connect('mongodb://127.0.0.1:27017/mongodb',{ 
+    user:'zx',
+    pass:'zx'
   });
 }
 

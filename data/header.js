@@ -4,7 +4,7 @@ export default  [
         {title: "HTML5标签语意", link:'/htm', href:{pathname: '/content', query: { id: 'htm' }}}, 
         {title: "CSS3运用总结", link:"/css", href:{pathname: '/content', query: { id: 'css' }}}, 
         {title: "JavaScript基础", link:"/js", href:{pathname: '/content', query: { id: 'js' }}}, 
-        {title: "前端框架介绍", link:"/frame", href:{pathname: '/content', query: { id: 'frame' }}}
+        {title: "前端框架相关", link:"/frame", href:{pathname: '/content', query: { id: 'frame' }}}
     ]},
     { title: "慢生活", link : "", child:[
         {title: "程序人生", link:"/lifes", href:{pathname: '/articles', query: { id: 'lifes' }}}, 

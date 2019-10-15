@@ -11,6 +11,7 @@ const setTags = tags => tags.split(',');
  * Article Schema
  */
 const ArticleSchema = new Schema({
+  aid: { type : String, default : '' },
   title: { type : String, default : '' },
   author: { type : String, default : '张啸' },
   description: { type : String, default : '' },

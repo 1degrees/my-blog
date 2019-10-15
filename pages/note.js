@@ -1,3 +1,4 @@
+import uuid from 'uuid';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import _, { get, set } from 'lodash';
@@ -5,8 +6,8 @@ import React, { Component }from 'react';
 import Router, { withRouter } from 'next/router';
 import { Modal, Form, Button, Select, Input } from 'antd';
 import LoaderLib from '@utils/loaderLib';
+import { BLOG_URL } from '@config'
 import { saveArticle } from '../service';
-
 const Layout = dynamic(import('@components/view/Layout'));
 
 const { TextArea } = Input;
@@ -66,6 +67,10 @@ const CustomizedForm = Form.create({
             <Option value="旅游日记">旅游日记</Option>
             <Option value="程序人生">程序人生</Option>
             <Option value="语录心得" >语录心得</Option>
+            <Option value="学无止境-frame">前端框架相关</Option>
+            <Option value="学无止境-js">JavaScript基础</Option>
+            <Option value="学无止境-CSS3" >CSS3运用总结</Option>
+            <Option value="学无止境-html">HTML5标签语意</Option>
           </Select>
         )}
       </FormItem>
@@ -140,14 +145,15 @@ class Note extends Component {
   handleOk = () => {
     this.form.validateFields((err, values) => {
       if (!err) {
-        let title = this.state.fields.title.value,
-            link = `/article?title=${title}`,
+        let aid = uuid.v4(),
             tag  = this.state.fields.tag.value,
+            title = this.state.fields.title.value,
             password = this.state.fields.password.value,
+            link = `${BLOG_URL}article?id=${aid}`,
             description = this.state.fields.description.value,
             time =  _.now('yyyy-MM-dd hh:mm:ss'),
             content = this.editor.txt.html();
-        let article = { title, link, description, content, tag, time, author:"张啸", views : 0, likes : 0 };
+        let article = { aid, title, link, description, content, tag, time, author:"张啸", views : 0, likes : 0 };
         if(password == 'zhangxiao'){
           this.submitContent(article);
         }
@@ -162,7 +168,7 @@ class Note extends Component {
       fields: {
         title: {  value: '' },
         description: {  value: '' },
-        tag: { },
+        tag: {},
         password: {  value: '' }
       } 
     });
@@ -184,8 +190,8 @@ class Note extends Component {
     return (
         <Layout>
           <Head>
-            <script defer src="//unpkg.com/wangeditor/release/wangEditor.min.js"/>
             <link rel="stylesheet" href="//unpkg.com/wangeditor/release/wangEditor.min.css"/>
+            <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"/>
           </Head>
           <div className="pagebg sh"></div>
           <div className="container">
