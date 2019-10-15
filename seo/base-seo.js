@@ -7,6 +7,6 @@ export default {
     "renderer" : 'webkit',
     "viewport": 'width=device-width, initial-scale=1',
     "keywords": '个人博客,Next项目Demo,服务端渲染,Nextjs',
-    "description": '走在web前端研发之路的经验。在学习的过程中与大家分享交流',
+    "description": '记录个人在web前端研发之路的经验和不足。在学习的过程中与大家分享交流',
     "author": "zhangxiao@wshifu.com",
   };
