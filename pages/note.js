@@ -109,8 +109,8 @@ class Note extends Component {
   }
 
   componentDidMount(){
-    let { wangEditor } = window;
-    LoaderLib(wangEditor).then(rs => {
+    let srcs = [{ context: window,  ref: 'wangEditor' }];
+    LoaderLib(srcs).then(rs => {
       this.editor = new wangEditor('#editor');
       this.editor.create();
     })
@@ -190,8 +190,8 @@ class Note extends Component {
     return (
         <Layout>
           <Head>
-            <link rel="stylesheet" href="//unpkg.com/wangeditor/release/wangEditor.min.css"/>
-            <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"/>
+            <link rel="stylesheet" href="/static/css/wangEditor.min.css"/>
+            <script src="/static/js/wangEditor.min.js"/>
           </Head>
           <div className="pagebg sh"></div>
           <div className="container">

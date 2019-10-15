@@ -28,8 +28,11 @@ class Index extends Component {
 
   componentDidMount(){
     //等待js库加载完成
-    let { $, scrollReveal } = window;
-    LoaderLib($, scrollReveal).then(rs => {
+    let srcs = [
+      { context: window,  ref: '$' },
+      { context: window,  ref: 'scrollReveal' },
+    ];
+    LoaderLib(srcs).then(rs => {
       new scrollReveal({ reset: true });
       $('#banner').easyFader();
     })
